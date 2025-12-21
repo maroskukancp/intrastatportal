@@ -3,19 +3,20 @@ import { getLangFromUrl, useTranslations } from '../i18n/translations';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const prefix = lang === 'sk' ? '' : '/en';
 
 const quickLinks = [
-  { name: t('nav.services'), href: `${prefix}/sluzby` },
-  { name: t('nav.about'), href: `${prefix}/o-nas` },
-  { name: t('nav.pricing'), href: `${prefix}/cennik` },
-  { name: t('nav.contact'), href: `${prefix}/kontakt` },
+  { name: t('nav.services'), href: `${base}${prefix}/sluzby` },
+  { name: t('nav.about'), href: `${base}${prefix}/o-nas` },
+  { name: t('nav.pricing'), href: `${base}${prefix}/cennik` },
+  { name: t('nav.contact'), href: `${base}${prefix}/kontakt` },
 ];
 
 const legalLinks = [
-  { name: t('footer.privacy'), href: `${prefix}/ochrana-osobnych-udajov` },
-  { name: t('footer.terms'), href: `${prefix}/obchodne-podmienky` },
-  { name: t('footer.cookies'), href: `${prefix}/cookies` },
+  { name: t('footer.privacy'), href: `${base}${prefix}/ochrana-osobnych-udajov` },
+  { name: t('footer.terms'), href: `${base}${prefix}/obchodne-podmienky` },
+  { name: t('footer.cookies'), href: `${base}${prefix}/cookies` },
 ];
 ---
 
@@ -24,7 +25,7 @@ const legalLinks = [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Brand -->
       <div class="lg:col-span-1">
-        <a href={`${prefix}/`} class="flex items-center space-x-2 mb-4">
+        <a href={`${base}${prefix}/`} class="flex items-center space-x-2 mb-4">
           <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
             <span class="text-white font-bold text-xl">IP</span>
           </div>

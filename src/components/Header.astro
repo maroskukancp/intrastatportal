@@ -5,17 +5,18 @@ import LanguageSwitcher from './LanguageSwitcher.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const prefix = lang === 'sk' ? '' : '/en';
 
 const navigation = [
-  { name: t('nav.home'), href: `${prefix}/` },
-  { name: t('nav.services'), href: `${prefix}/sluzby` },
-  { name: t('nav.about'), href: `${prefix}/o-nas` },
-  { name: t('nav.howItWorks'), href: `${prefix}/ako-to-funguje` },
-  { name: t('nav.pricing'), href: `${prefix}/cennik` },
-  { name: t('nav.faq'), href: `${prefix}/faq` },
-  { name: t('nav.blog'), href: `${prefix}/blog` },
-  { name: t('nav.contact'), href: `${prefix}/kontakt` },
+  { name: t('nav.home'), href: `${base}${prefix}/` },
+  { name: t('nav.services'), href: `${base}${prefix}/sluzby` },
+  { name: t('nav.about'), href: `${base}${prefix}/o-nas` },
+  { name: t('nav.howItWorks'), href: `${base}${prefix}/ako-to-funguje` },
+  { name: t('nav.pricing'), href: `${base}${prefix}/cennik` },
+  { name: t('nav.faq'), href: `${base}${prefix}/faq` },
+  { name: t('nav.blog'), href: `${base}${prefix}/blog` },
+  { name: t('nav.contact'), href: `${base}${prefix}/kontakt` },
 ];
 ---
 
@@ -23,7 +24,7 @@ const navigation = [
   <nav class="container-custom">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href={`${prefix}/`} class="flex items-center space-x-2">
+      <a href={`${base}${prefix}/`} class="flex items-center space-x-2">
         <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
           <span class="text-white font-bold text-xl">IP</span>
         </div>
@@ -45,7 +46,7 @@ const navigation = [
       <!-- Right side: Language + CTA -->
       <div class="hidden lg:flex items-center space-x-4">
         <LanguageSwitcher />
-        <a href={`${prefix}/kontakt`} class="btn-primary text-sm py-2 px-4">
+        <a href={`${base}${prefix}/kontakt`} class="btn-primary text-sm py-2 px-4">
           {t('hero.cta')}
         </a>
       </div>
@@ -80,7 +81,7 @@ const navigation = [
           <LanguageSwitcher />
         </div>
         <div class="px-3 py-2">
-          <a href={`${prefix}/kontakt`} class="btn-primary w-full text-center text-sm py-2">
+          <a href={`${base}${prefix}/kontakt`} class="btn-primary w-full text-center text-sm py-2">
             {t('hero.cta')}
           </a>
         </div>

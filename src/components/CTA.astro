@@ -3,6 +3,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/translations';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const prefix = lang === 'sk' ? '' : '/en';
 ---
 
@@ -15,7 +16,7 @@ const prefix = lang === 'sk' ? '' : '/en';
       <p class="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
         {t('cta.subtitle')}
       </p>
-      <a href={`${prefix}/kontakt`} class="btn-accent text-lg py-4 px-8">
+      <a href={`${base}${prefix}/kontakt`} class="btn-accent text-lg py-4 px-8">
         {t('cta.button')}
       </a>
     </div>
