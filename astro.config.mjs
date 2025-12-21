@@ -3,8 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://maroskukancp.github.io',
-  base: '/intrastatportal',
+  site: 'https://intrastatportal.sk',
+  base: '/',
   trailingSlash: 'always',
   build: {
     assets: '_astro'
