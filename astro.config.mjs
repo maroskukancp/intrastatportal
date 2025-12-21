@@ -5,6 +5,10 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://maroskukancp.github.io',
   base: '/intrastatportal',
+  trailingSlash: 'always',
+  build: {
+    assets: '_astro'
+  },
   integrations: [tailwind(), sitemap()],
   i18n: {
     defaultLocale: 'sk',
