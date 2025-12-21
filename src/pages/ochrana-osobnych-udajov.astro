@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Ochrana osobných údajov | Intrastat Portál" description="Informácie o spracovaní a ochrane osobných údajov na stránke Intrastat Portál.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Ochrana osobných údajov
+        </h1>
+        <p class="text-xl text-primary-100">
+          Informácie o spracovaní vašich osobných údajov
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Ochrana vašich osobných údajov je pre nás prioritou. Tento dokument vysvetľuje, ako zhromažďujeme, používame a chránime vaše osobné údaje.
+        </p>
+
+        <h2>1. Prevádzkovateľ</h2>
+        <p>
+          Prevádzkovateľom osobných údajov je spoločnosť prevádzkujúca webovú stránku intrastatportal.sk (ďalej len "Prevádzkovateľ").
+        </p>
+
+        <h2>2. Aké údaje zhromažďujeme</h2>
+        <p>Zhromažďujeme nasledovné kategórie osobných údajov:</p>
+        <ul>
+          <li><strong>Kontaktné údaje:</strong> meno, e-mailová adresa, telefónne číslo</li>
+          <li><strong>Firemné údaje:</strong> názov spoločnosti, IČO, DIČ</li>
+          <li><strong>Technické údaje:</strong> IP adresa, typ prehliadača, cookies</li>
+        </ul>
+
+        <h2>3. Účel spracovania</h2>
+        <p>Vaše osobné údaje spracúvame za účelom:</p>
+        <ul>
+          <li>Poskytovania služieb spracovania Intrastat hlásení</li>
+          <li>Komunikácie s vami ohľadom našich služieb</li>
+          <li>Zasielania obchodných oznámení (len s vaším súhlasom)</li>
+          <li>Zlepšovania našich služieb a webovej stránky</li>
+        </ul>
+
+        <h2>4. Právny základ spracovania</h2>
+        <p>Osobné údaje spracúvame na základe:</p>
+        <ul>
+          <li>Plnenia zmluvy alebo predzmluvných vzťahov</li>
+          <li>Oprávneného záujmu prevádzkovateľa</li>
+          <li>Vášho súhlasu (pre marketingové účely)</li>
+          <li>Plnenia zákonných povinností</li>
+        </ul>
+
+        <h2>5. Doba uchovávania</h2>
+        <p>
+          Osobné údaje uchovávame po dobu nevyhnutnú na splnenie účelu spracovania, maximálne však:
+        </p>
+        <ul>
+          <li>Zmluvné údaje: 10 rokov od ukončenia zmluvného vzťahu</li>
+          <li>Účtovné doklady: 10 rokov</li>
+          <li>Marketingové súhlasy: do odvolania súhlasu</li>
+        </ul>
+
+        <h2>6. Vaše práva</h2>
+        <p>Máte právo:</p>
+        <ul>
+          <li>Na prístup k svojim osobným údajom</li>
+          <li>Na opravu nesprávnych údajov</li>
+          <li>Na vymazanie údajov ("právo byť zabudnutý")</li>
+          <li>Na obmedzenie spracovania</li>
+          <li>Na prenosnosť údajov</li>
+          <li>Namietať proti spracovaniu</li>
+          <li>Odvolať súhlas so spracovaním</li>
+        </ul>
+
+        <h2>7. Bezpečnosť údajov</h2>
+        <p>
+          Prijali sme primerané technické a organizačné opatrenia na ochranu vašich osobných údajov pred neoprávneným prístupom, zmenou, zverejnením alebo zničením.
+        </p>
+
+        <h2>8. Kontakt</h2>
+        <p>
+          V prípade otázok týkajúcich sa ochrany osobných údajov nás môžete kontaktovať na e-mailovej adrese uvedenej na stránke <a href="/kontakt">Kontakt</a>.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Posledná aktualizácia: Január 2025
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

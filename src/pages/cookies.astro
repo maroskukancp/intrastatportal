@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Cookies | Intrastat Portál" description="Informácie o používaní cookies na stránke Intrastat Portál.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Cookies
+        </h1>
+        <p class="text-xl text-primary-100">
+          Informácie o používaní cookies na našej stránke
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Táto stránka používa cookies na zlepšenie vášho zážitku z prehliadania. Tu sa dozviete, čo sú cookies a ako ich používame.
+        </p>
+
+        <h2>Čo sú cookies?</h2>
+        <p>
+          Cookies sú malé textové súbory, ktoré sa ukladajú vo vašom zariadení (počítač, tablet, mobilný telefón) pri návšteve webových stránok. Cookies umožňujú webovej stránke rozpoznať vaše zariadenie a zapamätať si určité informácie o vašich preferenciách.
+        </p>
+
+        <h2>Aké cookies používame</h2>
+        
+        <h3>Nevyhnutné cookies</h3>
+        <p>
+          Tieto cookies sú potrebné pre základné fungovanie webovej stránky. Bez nich by stránka nefungovala správne. Tieto cookies nezbierajú žiadne informácie o vás, ktoré by sa dali použiť na marketingové účely.
+        </p>
+
+        <h3>Analytické cookies</h3>
+        <p>
+          Používame analytické cookies na pochopenie toho, ako návštevníci používajú našu stránku. Tieto informácie nám pomáhajú zlepšovať obsah a funkčnosť stránky. Všetky údaje sú anonymizované.
+        </p>
+
+        <h3>Funkčné cookies</h3>
+        <p>
+          Tieto cookies umožňujú stránke zapamätať si vaše voľby (napríklad jazyk) a poskytovať vylepšené, personalizované funkcie.
+        </p>
+
+        <h2>Správa cookies</h2>
+        <p>
+          Väčšina webových prehliadačov umožňuje kontrolovať cookies prostredníctvom nastavení. Môžete:
+        </p>
+        <ul>
+          <li>Zobraziť, aké cookies sú uložené vo vašom zariadení</li>
+          <li>Vymazať všetky alebo vybrané cookies</li>
+          <li>Blokovať cookies tretích strán</li>
+          <li>Blokovať cookies z konkrétnych stránok</li>
+          <li>Blokovať všetky cookies</li>
+          <li>Vymazať všetky cookies pri zatvorení prehliadača</li>
+        </ul>
+
+        <h2>Ako vypnúť cookies</h2>
+        <p>
+          Ak chcete obmedziť alebo blokovať cookies, môžete to urobiť v nastaveniach vášho prehliadača:
+        </p>
+        <ul>
+          <li><strong>Chrome:</strong> Nastavenia → Súkromie a zabezpečenie → Cookies</li>
+          <li><strong>Firefox:</strong> Nastavenia → Súkromie a zabezpečenie → Cookies</li>
+          <li><strong>Safari:</strong> Predvoľby → Súkromie → Cookies</li>
+          <li><strong>Edge:</strong> Nastavenia → Cookies a povolenia stránok</li>
+        </ul>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-6">
+          <p class="text-amber-800 mb-0">
+            <strong>Upozornenie:</strong> Vypnutie cookies môže ovplyvniť funkčnosť niektorých častí webovej stránky.
+          </p>
+        </div>
+
+        <h2>Zmeny v politike cookies</h2>
+        <p>
+          Vyhradzujeme si právo kedykoľvek aktualizovať túto politiku cookies. Odporúčame vám pravidelne kontrolovať túto stránku, aby ste boli informovaní o prípadných zmenách.
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Ak máte akékoľvek otázky týkajúce sa používania cookies, kontaktujte nás prostredníctvom stránky <a href="/kontakt">Kontakt</a>.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Posledná aktualizácia: Január 2025
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose h3 {
+    @apply text-xl font-semibold text-slate-800 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title="Obchodné podmienky | Intrastat Portál" description="Všeobecné obchodné podmienky poskytovania služieb Intrastat Portál.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Obchodné podmienky
+        </h1>
+        <p class="text-xl text-primary-100">
+          Všeobecné obchodné podmienky poskytovania služieb
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Tieto všeobecné obchodné podmienky upravujú vzťahy medzi poskytovateľom služieb a klientom pri poskytovaní služieb spracovania Intrastat hlásení.
+        </p>
+
+        <h2>1. Základné ustanovenia</h2>
+        <p>
+          Tieto obchodné podmienky (ďalej len "OP") upravujú práva a povinnosti zmluvných strán vyplývajúce zo zmluvy o poskytovaní služieb uzatvorenej medzi poskytovateľom a klientom.
+        </p>
+
+        <h2>2. Definície</h2>
+        <ul>
+          <li><strong>Poskytovateľ:</strong> prevádzkovateľ webovej stránky intrastatportal.sk</li>
+          <li><strong>Klient:</strong> fyzická alebo právnická osoba, ktorá využíva služby poskytovateľa</li>
+          <li><strong>Služby:</strong> spracovanie Intrastat hlásení, poradenstvo, zastupovanie a školenia</li>
+        </ul>
+
+        <h2>3. Predmet zmluvy</h2>
+        <p>
+          Predmetom zmluvy je záväzok poskytovateľa poskytnúť klientovi služby spracovania Intrastat hlásení a súvisiace služby podľa dohodnutého rozsahu a záväzok klienta zaplatiť za tieto služby dohodnutú cenu.
+        </p>
+
+        <h2>4. Objednávka služieb</h2>
+        <p>
+          Objednávka služieb sa realizuje prostredníctvom kontaktného formulára na webovej stránke, e-mailom alebo telefonicky. Zmluva je uzatvorená momentom potvrdenia objednávky poskytovateľom.
+        </p>
+
+        <h2>5. Cena a platobné podmienky</h2>
+        <ul>
+          <li>Ceny služieb sú uvedené v cenníku na webovej stránke</li>
+          <li>Ceny sú uvedené bez DPH, ak nie je uvedené inak</li>
+          <li>Faktúra je splatná do 14 dní od jej vystavenia</li>
+          <li>V prípade omeškania s platbou si poskytovateľ vyhradzuje právo účtovať úrok z omeškania</li>
+        </ul>
+
+        <h2>6. Povinnosti klienta</h2>
+        <p>Klient je povinný:</p>
+        <ul>
+          <li>Poskytnúť všetky potrebné podklady pre spracovanie hlásení včas a v požadovanej kvalite</li>
+          <li>Informovať poskytovateľa o všetkých skutočnostiach relevantných pre poskytovanie služieb</li>
+          <li>Uhradiť cenu za poskytnuté služby v dohodnutej lehote</li>
+          <li>Spolupracovať pri riešení prípadných nezrovnalostí</li>
+        </ul>
+
+        <h2>7. Povinnosti poskytovateľa</h2>
+        <p>Poskytovateľ je povinný:</p>
+        <ul>
+          <li>Spracovať hlásenia odborne a v súlade s platnou legislatívou</li>
+          <li>Dodržať dohodnuté termíny</li>
+          <li>Zachovávať mlčanlivosť o všetkých skutočnostiach, o ktorých sa dozvedel pri poskytovaní služieb</li>
+          <li>Informovať klienta o prípadných problémoch alebo nezrovnalostiach</li>
+        </ul>
+
+        <h2>8. Zodpovednosť</h2>
+        <p>
+          Poskytovateľ zodpovedá za škodu spôsobenú porušením svojich povinností. Zodpovednosť je limitovaná výškou odmeny za služby, pri ktorých došlo k škode. Poskytovateľ nezodpovedá za škodu spôsobenú nesprávnymi alebo neúplnými podkladmi od klienta.
+        </p>
+
+        <h2>9. Ukončenie zmluvy</h2>
+        <p>
+          Zmluvu je možné ukončiť dohodou zmluvných strán alebo výpoveďou s jednomesačnou výpovednou lehotou. V prípade hrubého porušenia povinností je možné od zmluvy odstúpiť s okamžitou účinnosťou.
+        </p>
+
+        <h2>10. Záverečné ustanovenia</h2>
+        <p>
+          Tieto OP nadobúdajú účinnosť dňom ich zverejnenia na webovej stránke. Poskytovateľ si vyhradzuje právo tieto OP jednostranne zmeniť. Vzťahy neupravené týmito OP sa riadia príslušnými ustanoveniami Obchodného zákonníka.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Posledná aktualizácia: Január 2025
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

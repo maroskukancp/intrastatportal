@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Terms and Conditions | Intrastat Portal" description="General terms and conditions for the provision of Intrastat Portal services.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Terms and Conditions
+        </h1>
+        <p class="text-xl text-primary-100">
+          General terms and conditions for the provision of services
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          These general terms and conditions govern the relationship between the service provider and the client in the provision of Intrastat reporting services.
+        </p>
+
+        <h2>1. General Provisions</h2>
+        <p>
+          These terms and conditions (hereinafter "T&C") govern the rights and obligations of the contracting parties arising from the service agreement concluded between the provider and the client.
+        </p>
+
+        <h2>2. Definitions</h2>
+        <ul>
+          <li><strong>Provider:</strong> the operator of the website intrastatportal.sk</li>
+          <li><strong>Client:</strong> a natural or legal person who uses the provider's services</li>
+          <li><strong>Services:</strong> Intrastat report processing, consulting, representation, and training</li>
+        </ul>
+
+        <h2>3. Subject of the Contract</h2>
+        <p>
+          The subject of the contract is the provider's commitment to provide the client with Intrastat reporting services and related services according to the agreed scope, and the client's commitment to pay the agreed price for these services.
+        </p>
+
+        <h2>4. Ordering Services</h2>
+        <p>
+          Services can be ordered through the contact form on the website, by email, or by phone. The contract is concluded upon confirmation of the order by the provider.
+        </p>
+
+        <h2>5. Price and Payment Terms</h2>
+        <ul>
+          <li>Service prices are listed in the price list on the website</li>
+          <li>Prices are quoted without VAT unless otherwise stated</li>
+          <li>Invoices are due within 14 days of issue</li>
+          <li>In case of late payment, the provider reserves the right to charge interest on arrears</li>
+        </ul>
+
+        <h2>6. Client's Obligations</h2>
+        <p>The client is obliged to:</p>
+        <ul>
+          <li>Provide all necessary documents for report processing on time and in the required quality</li>
+          <li>Inform the provider of all facts relevant to the provision of services</li>
+          <li>Pay the price for the services provided within the agreed deadline</li>
+          <li>Cooperate in resolving any discrepancies</li>
+        </ul>
+
+        <h2>7. Provider's Obligations</h2>
+        <p>The provider is obliged to:</p>
+        <ul>
+          <li>Process reports professionally and in accordance with applicable legislation</li>
+          <li>Meet agreed deadlines</li>
+          <li>Maintain confidentiality about all facts learned during the provision of services</li>
+          <li>Inform the client of any problems or discrepancies</li>
+        </ul>
+
+        <h2>8. Liability</h2>
+        <p>
+          The provider is liable for damage caused by breach of its obligations. Liability is limited to the amount of remuneration for the services in which the damage occurred. The provider is not liable for damage caused by incorrect or incomplete documents from the client.
+        </p>
+
+        <h2>9. Termination of Contract</h2>
+        <p>
+          The contract may be terminated by agreement of the contracting parties or by notice with a one-month notice period. In case of gross breach of obligations, it is possible to withdraw from the contract with immediate effect.
+        </p>
+
+        <h2>10. Final Provisions</h2>
+        <p>
+          These T&C become effective on the date of their publication on the website. The provider reserves the right to unilaterally amend these T&C. Relations not regulated by these T&C are governed by the relevant provisions of the Commercial Code.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Last updated: January 2025
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>
