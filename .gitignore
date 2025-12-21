@@ -26,3 +26,8 @@ pnpm-debug.log*
 
 # Astro
 .astro/
+
+# Image source/prompts (local only)
+img-src/
+
+
