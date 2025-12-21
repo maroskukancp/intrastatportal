@@ -13,7 +13,7 @@ export const translations = {
     'nav.about': 'O nás',
     'nav.howItWorks': 'Ako to funguje',
     'nav.pricing': 'Cenník',
-    'nav.faq': 'FAQ',
+    'nav.faq': 'Časté otázky',
     'nav.blog': 'Blog',
     'nav.contact': 'Kontakt',
     
