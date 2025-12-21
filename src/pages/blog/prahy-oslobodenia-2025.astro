@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === 'sk' ? '' : '/en';
+---
+
+<Layout title="Prahy oslobodenia pre rok 2025 | Intrastat Portál" description="Aktuálne prahy oslobodenia pre Intrastat hlásenia v roku 2025. Čo sa zmenilo a ako to ovplyvní vašu firmu.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Legislatíva
+            </span>
+            <span class="text-sm text-primary-200">3 min čítania</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Prahy oslobodenia pre rok 2025
+          </h1>
+          <p class="text-xl text-primary-100">
+            Aktuálne prahy oslobodenia a čo to znamená pre vašu firmu.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">10. januára 2025</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>Prahy oslobodenia pre rok 2025</h2>
+          <p>
+            Od 1. januára 2025 platia na Slovensku nasledovné prahy oslobodenia pre Intrastat hlásenia:
+          </p>
+          
+          <div class="bg-slate-50 rounded-xl p-6 my-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">1 000 000 €</div>
+                <div class="text-slate-600">Prijatie tovaru (dovoz z EÚ)</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">1 000 000 €</div>
+                <div class="text-slate-600">Odoslanie tovaru (vývoz do EÚ)</div>
+              </div>
+            </div>
+          </div>
+
+          <h2>Čo to znamená v praxi?</h2>
+          <p>
+            Ak vaša firma v priebehu roka 2025 <strong>kumulatívne</strong> prekročí hodnotu 1 000 000 EUR v prijatiach alebo odoslaniach tovaru v rámci EÚ, vzniká vám povinnosť podávať Intrastat hlásenia.
+          </p>
+          
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-6">
+            <p class="font-semibold text-amber-900 mb-2">Dôležité upozornenie:</p>
+            <p class="text-amber-800 mb-0">
+              Povinnosť môže vzniknúť <strong>kedykoľvek počas roka</strong>. Preto je potrebné priebežne sledovať kumulatívnu hodnotu vašich obchodov od začiatku roka.
+            </p>
+          </div>
+
+          <h2>Ako sledovať kumulatívnu hodnotu?</h2>
+          <p>
+            Odporúčame viesť si priebežnú evidenciu hodnoty tovaru:
+          </p>
+          <ul>
+            <li>Samostatne pre prijatia (nákupy z EÚ)</li>
+            <li>Samostatne pre odoslania (predaje do EÚ)</li>
+            <li>Kumulatívne od 1. januára daného roka</li>
+          </ul>
+
+          <h2>Príklad</h2>
+          <p>
+            Firma ABC s.r.o. nakupuje tovar z Nemecka. V januári nakúpila za 300 000 €, vo februári za 400 000 € a v marci za 350 000 €.
+          </p>
+          <ul>
+            <li>Január: 300 000 € (kumulatívne: 300 000 €) - bez povinnosti</li>
+            <li>Február: 400 000 € (kumulatívne: 700 000 €) - bez povinnosti</li>
+            <li>Marec: 350 000 € (kumulatívne: 1 050 000 €) - <strong>vzniká povinnosť</strong></li>
+          </ul>
+          <p>
+            Od marca musí firma ABC s.r.o. podávať mesačné Intrastat hlásenia za prijatia.
+          </p>
+
+          <h2>Potrebujete pomoc?</h2>
+          <p>
+            Ak si nie ste istí, či vám vzniká povinnosť, alebo potrebujete pomoc so spracovaním hlásení, <a href={`${prefix}/kontakt`}>kontaktujte nás</a>. Radi vám poradíme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

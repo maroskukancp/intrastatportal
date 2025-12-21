@@ -1,0 +1,121 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === 'sk' ? '' : '/en';
+---
+
+<Layout title="Čo je Intrastat a kedy vzniká povinnosť? | Intrastat Portál" description="Komplexný sprievodca systémom Intrastat pre slovenské firmy. Zistite, kedy vám vzniká povinnosť podávať hlásenia.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Základy
+            </span>
+            <span class="text-sm text-primary-200">5 min čítania</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Čo je Intrastat a kedy vzniká povinnosť?
+          </h1>
+          <p class="text-xl text-primary-100">
+            Komplexný sprievodca systémom Intrastat pre slovenské firmy.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">15. januára 2025</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>Čo je Intrastat?</h2>
+          <p>
+            <strong>Intrastat</strong> je systém štatistického zisťovania, ktorý umožňuje zbierať, spracúvať a poskytovať údaje o obchodovaní s tovarom medzi členskými štátmi Európskej únie. Tento systém funguje od 1. januára 1993, kedy nahradil colné deklarácie ako zdroj štatistík o obchode v rámci EÚ.
+          </p>
+          <p>
+            V podmienkach Slovenska to znamená štatistické zisťovanie o <strong>prijatiach</strong> (dovoz z EÚ) a <strong>odoslaniach</strong> (vývoz do EÚ) tovaru medzi Slovenskou republikou a ostatnými členskými štátmi.
+          </p>
+
+          <h2>Kedy vzniká povinnosť podávať Intrastat hlásenia?</h2>
+          <p>
+            Povinnosť podávať Intrastat hlásenia vzniká, keď hodnota vášho obchodu s tovarom v rámci EÚ prekročí stanovený <strong>prah oslobodenia</strong> (asimilačný prah).
+          </p>
+          
+          <div class="bg-primary-50 border-l-4 border-primary-500 p-4 my-6">
+            <p class="font-semibold text-primary-900 mb-2">Prahy oslobodenia pre rok 2025:</p>
+            <ul class="text-primary-800 mb-0">
+              <li><strong>Prijatie tovaru (dovoz z EÚ):</strong> 1 000 000 EUR</li>
+              <li><strong>Odoslanie tovaru (vývoz do EÚ):</strong> 1 000 000 EUR</li>
+            </ul>
+          </div>
+
+          <p>
+            Dôležité je, že tieto prahy sa sledujú <strong>kumulatívne od začiatku kalendárneho roka</strong> a <strong>samostatne pre každý smer</strong> (prijatie a odoslanie). To znamená, že môžete mať povinnosť len pre jeden smer, alebo pre oba.
+          </p>
+
+          <h2>Kto musí podávať hlásenia?</h2>
+          <p>
+            Spravodajskou jednotkou je každá osoba registrovaná pre DPH v SR, ktorá:
+          </p>
+          <ul>
+            <li>Nakupuje tovar z iných členských štátov EÚ</li>
+            <li>Predáva tovar do iných členských štátov EÚ</li>
+            <li>Prekročila prah oslobodenia v danom smere</li>
+          </ul>
+
+          <h2>Aké údaje sa vykazujú?</h2>
+          <p>
+            V Intrastat hlásení sa uvádzajú nasledovné údaje:
+          </p>
+          <ul>
+            <li><strong>Kód tovaru</strong> podľa kombinovanej nomenklatúry (8-miestny kód)</li>
+            <li><strong>Krajina pôvodu/určenia</strong></li>
+            <li><strong>Hodnota tovaru</strong> v EUR</li>
+            <li><strong>Hmotnosť</strong> v kg</li>
+            <li><strong>Doplnková merná jednotka</strong> (ak je predpísaná)</li>
+            <li><strong>Povaha transakcie</strong></li>
+            <li><strong>Dodacie podmienky</strong></li>
+            <li><strong>Druh dopravy</strong></li>
+          </ul>
+
+          <h2>Termíny a sankcie</h2>
+          <p>
+            Hlásenie je potrebné podať <strong>do 15. kalendárneho dňa</strong> po skončení sledovaného mesiaca, a to elektronicky prostredníctvom portálu finančnej správy.
+          </p>
+          <p>
+            Za nepodanie hlásenia môže Štatistický úrad SR uložiť pokutu <strong>až do výšky 3 320 EUR</strong> za každé nepredložené hlásenie. Zaplatenie pokuty vás nezbavuje povinnosti hlásenie podať.
+          </p>
+
+          <h2>Potrebujete pomoc s Intrastat hláseniami?</h2>
+          <p>
+            Spracovanie Intrastat hlásení môže byť časovo náročné a vyžaduje znalosť colnej nomenklatúry. Ak nechcete riskovať chyby a pokuty, <a href={`${prefix}/kontakt`}>kontaktujte nás</a> - radi vám pomôžeme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

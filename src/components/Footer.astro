@@ -1,0 +1,105 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === 'sk' ? '' : '/en';
+
+const quickLinks = [
+  { name: t('nav.services'), href: `${prefix}/sluzby` },
+  { name: t('nav.about'), href: `${prefix}/o-nas` },
+  { name: t('nav.pricing'), href: `${prefix}/cennik` },
+  { name: t('nav.contact'), href: `${prefix}/kontakt` },
+];
+
+const legalLinks = [
+  { name: t('footer.privacy'), href: `${prefix}/ochrana-osobnych-udajov` },
+  { name: t('footer.terms'), href: `${prefix}/obchodne-podmienky` },
+  { name: t('footer.cookies'), href: `${prefix}/cookies` },
+];
+---
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="container-custom py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href={`${prefix}/`} class="flex items-center space-x-2 mb-4">
+          <div class="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-xl">IP</span>
+          </div>
+          <span class="text-xl font-bold text-white">Intrastat Portál</span>
+        </a>
+        <p class="text-sm text-slate-400">
+          {t('footer.description')}
+        </p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+          {t('footer.links')}
+        </h3>
+        <ul class="space-y-3">
+          {quickLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Legal -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+          {t('footer.legal')}
+        </h3>
+        <ul class="space-y-3">
+          {legalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-slate-400 hover:text-white transition-colors">
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+          {t('contact.info.title')}
+        </h3>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            <span>info@intrastatportal.sk</span>
+          </li>
+          <li class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            <span>+421 XXX XXX XXX</span>
+          </li>
+          <li class="flex items-center space-x-2">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{t('contact.info.hoursValue')}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="mt-12 pt-8 border-t border-slate-800">
+      <p class="text-sm text-slate-500 text-center">
+        {t('footer.copyright')}
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Exemption thresholds for 2025 | Intrastat Portal" description="Current exemption thresholds for Intrastat reports in 2025. What has changed and how it affects your company.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Legislation
+            </span>
+            <span class="text-sm text-primary-200">3 min read</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Exemption thresholds for 2025
+          </h1>
+          <p class="text-xl text-primary-100">
+            Current exemption thresholds and what it means for your company.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">January 10, 2025</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>Exemption thresholds for 2025</h2>
+          <p>
+            From January 1, 2025, the following exemption thresholds apply in Slovakia for Intrastat reports:
+          </p>
+          
+          <div class="bg-slate-50 rounded-xl p-6 my-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">€1,000,000</div>
+                <div class="text-slate-600">Arrivals (imports from EU)</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">€1,000,000</div>
+                <div class="text-slate-600">Dispatches (exports to EU)</div>
+              </div>
+            </div>
+          </div>
+
+          <h2>What does this mean in practice?</h2>
+          <p>
+            If your company <strong>cumulatively</strong> exceeds the value of EUR 1,000,000 in arrivals or dispatches of goods within the EU during 2025, you are obligated to submit Intrastat reports.
+          </p>
+          
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-6">
+            <p class="font-semibold text-amber-900 mb-2">Important notice:</p>
+            <p class="text-amber-800 mb-0">
+              The obligation can arise <strong>at any time during the year</strong>. Therefore, it is necessary to continuously monitor the cumulative value of your trades from the beginning of the year.
+            </p>
+          </div>
+
+          <h2>How to monitor cumulative value?</h2>
+          <p>
+            We recommend keeping ongoing records of goods value:
+          </p>
+          <ul>
+            <li>Separately for arrivals (purchases from EU)</li>
+            <li>Separately for dispatches (sales to EU)</li>
+            <li>Cumulatively from January 1 of the given year</li>
+          </ul>
+
+          <h2>Example</h2>
+          <p>
+            Company ABC s.r.o. purchases goods from Germany. In January they purchased for €300,000, in February for €400,000, and in March for €350,000.
+          </p>
+          <ul>
+            <li>January: €300,000 (cumulative: €300,000) - no obligation</li>
+            <li>February: €400,000 (cumulative: €700,000) - no obligation</li>
+            <li>March: €350,000 (cumulative: €1,050,000) - <strong>obligation arises</strong></li>
+          </ul>
+          <p>
+            From March, company ABC s.r.o. must submit monthly Intrastat reports for arrivals.
+          </p>
+
+          <h2>Need help?</h2>
+          <p>
+            If you're not sure whether you have an obligation, or need help processing reports, <a href="/en/kontakt">contact us</a>. We'll be happy to advise you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

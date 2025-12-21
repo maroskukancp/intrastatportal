@@ -1,0 +1,119 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+
+const t = useTranslations('en');
+---
+
+<Layout title="What is Intrastat and when does the obligation arise? | Intrastat Portal" description="A comprehensive guide to the Intrastat system for Slovak companies. Find out when you are obligated to submit reports.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Basics
+            </span>
+            <span class="text-sm text-primary-200">5 min read</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            What is Intrastat and when does the obligation arise?
+          </h1>
+          <p class="text-xl text-primary-100">
+            A comprehensive guide to the Intrastat system for Slovak companies.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">January 15, 2025</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>What is Intrastat?</h2>
+          <p>
+            <strong>Intrastat</strong> is a statistical system for collecting, processing and providing data on trade in goods between EU member states. This system has been operating since January 1, 1993, when it replaced customs declarations as a source of trade statistics within the EU.
+          </p>
+          <p>
+            In Slovakia, this means statistical surveys on <strong>arrivals</strong> (imports from EU) and <strong>dispatches</strong> (exports to EU) of goods between the Slovak Republic and other member states.
+          </p>
+
+          <h2>When does the obligation to submit Intrastat reports arise?</h2>
+          <p>
+            The obligation to submit Intrastat reports arises when the value of your trade in goods within the EU exceeds the established <strong>exemption threshold</strong> (assimilation threshold).
+          </p>
+          
+          <div class="bg-primary-50 border-l-4 border-primary-500 p-4 my-6">
+            <p class="font-semibold text-primary-900 mb-2">Exemption thresholds for 2025:</p>
+            <ul class="text-primary-800 mb-0">
+              <li><strong>Arrivals (imports from EU):</strong> EUR 1,000,000</li>
+              <li><strong>Dispatches (exports to EU):</strong> EUR 1,000,000</li>
+            </ul>
+          </div>
+
+          <p>
+            It is important that these thresholds are monitored <strong>cumulatively from the beginning of the calendar year</strong> and <strong>separately for each direction</strong> (arrivals and dispatches). This means you may have an obligation for only one direction, or for both.
+          </p>
+
+          <h2>Who must submit reports?</h2>
+          <p>
+            A reporting unit is any person registered for VAT in Slovakia who:
+          </p>
+          <ul>
+            <li>Purchases goods from other EU member states</li>
+            <li>Sells goods to other EU member states</li>
+            <li>Has exceeded the exemption threshold in the given direction</li>
+          </ul>
+
+          <h2>What data is reported?</h2>
+          <p>
+            The following data is reported in the Intrastat report:
+          </p>
+          <ul>
+            <li><strong>Commodity code</strong> according to combined nomenclature (8-digit code)</li>
+            <li><strong>Country of origin/destination</strong></li>
+            <li><strong>Value of goods</strong> in EUR</li>
+            <li><strong>Weight</strong> in kg</li>
+            <li><strong>Supplementary unit</strong> (if prescribed)</li>
+            <li><strong>Nature of transaction</strong></li>
+            <li><strong>Delivery terms</strong></li>
+            <li><strong>Mode of transport</strong></li>
+          </ul>
+
+          <h2>Deadlines and penalties</h2>
+          <p>
+            The report must be submitted <strong>by the 15th calendar day</strong> after the end of the reporting month, electronically via the financial administration portal.
+          </p>
+          <p>
+            For failure to submit a report, the Statistical Office of the Slovak Republic may impose a fine of <strong>up to EUR 3,320</strong> for each report not submitted. Paying the fine does not relieve you of the obligation to submit the report.
+          </p>
+
+          <h2>Need help with Intrastat reports?</h2>
+          <p>
+            Processing Intrastat reports can be time-consuming and requires knowledge of customs nomenclature. If you don't want to risk errors and fines, <a href="/en/kontakt">contact us</a> - we'll be happy to help.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

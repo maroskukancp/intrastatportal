@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const prefix = lang === 'sk' ? '' : '/en';
+---
+
+<Layout title="5 najčastejších chýb pri Intrastat hláseniach | Intrastat Portál" description="Vyhnite sa týmto častým chybám pri podávaní Intrastat hlásení. Praktické tipy od odborníkov.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Tipy
+            </span>
+            <span class="text-sm text-primary-200">4 min čítania</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            5 najčastejších chýb pri Intrastat hláseniach
+          </h1>
+          <p class="text-xl text-primary-100">
+            Vyhnite sa týmto chybám a ušetrite si problémy s úradmi.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">5. januára 2025</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <p class="lead">
+            Pri spracovaní Intrastat hlásení sa stretávame s opakujúcimi sa chybami, ktoré môžu viesť k problémom s úradmi alebo pokutám. Tu je prehľad najčastejších chýb a ako sa im vyhnúť.
+          </p>
+
+          <h2>1. Nesprávny kód tovaru</h2>
+          <p>
+            Najčastejšou chybou je nesprávne zaradenie tovaru podľa kombinovanej nomenklatúry. Každý tovar musí byť zaradený do správnej 8-miestnej položky.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tip:</strong> Používajte oficiálny colný sadzobník a v prípade pochybností konzultujte s odborníkom. Nesprávny kód môže viesť k opravným hláseniam.
+            </p>
+          </div>
+
+          <h2>2. Chýbajúca krajina pôvodu</h2>
+          <p>
+            Pri prijatiach tovaru je potrebné uviesť krajinu pôvodu tovaru, nie krajinu odoslania. Tieto sa môžu líšiť - napríklad tovar vyrobený v Číne, ale zaslaný z Nemecka.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tip:</strong> Krajinu pôvodu nájdete na faktúre, dodacom liste alebo priamo na tovare. Ak nie je uvedená, vyžiadajte si ju od dodávateľa.
+            </p>
+          </div>
+
+          <h2>3. Nesprávna hodnota tovaru</h2>
+          <p>
+            Hodnota tovaru sa uvádza v EUR a mala by zodpovedať fakturovanej hodnote. Časté chyby:
+          </p>
+          <ul>
+            <li>Zahrnutie DPH do hodnoty (má byť bez DPH)</li>
+            <li>Nesprávny prepočet z inej meny</li>
+            <li>Vynechanie vedľajších nákladov (doprava, poistenie)</li>
+          </ul>
+
+          <h2>4. Oneskorené podanie</h2>
+          <p>
+            Hlásenie musí byť podané <strong>do 15. dňa</strong> nasledujúceho mesiaca. Oneskorené podanie môže viesť k upomienkam a pokutám.
+          </p>
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4">
+            <p class="text-amber-800 mb-0">
+              <strong>Pozor:</strong> Pokuta za nepodanie hlásenia môže byť až 3 320 EUR za každé hlásenie!
+            </p>
+          </div>
+
+          <h2>5. Nesledovanie prahu oslobodenia</h2>
+          <p>
+            Mnohé firmy si neuvedomia, že prekročili prah oslobodenia a majú povinnosť podávať hlásenia. Hodnota sa sleduje kumulatívne od začiatku roka.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tip:</strong> Nastavte si v účtovnom systéme upozornenie pri dosiahnutí 80% prahu oslobodenia.
+            </p>
+          </div>
+
+          <h2>Ako sa vyhnúť chybám?</h2>
+          <p>
+            Najlepším spôsobom, ako sa vyhnúť chybám, je zveriť spracovanie hlásení odborníkom. Ušetríte čas, vyhnete sa pokutám a budete mať istotu, že všetko je v poriadku.
+          </p>
+          <p>
+            <a href={`${prefix}/kontakt`}>Kontaktujte nás</a> a my sa o vaše Intrastat hlásenia postaráme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>
