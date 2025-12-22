@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Blog', url: '/blog/' },
+  { name: 'Colný sadzobník a zatriedenie tovaru', url: '/blog/colny-sadzobnik-zatriedenie/' }
+];
+---
+
+<Layout 
+  title="Colný sadzobník a zatriedenie tovaru v Intrastat hláseniach | Intrastat Portál"
+  description="Komplexný sprievodca colným sadzobníkom a správnym zatriedením tovaru. Naučte sa ako priradiť správny kód KN a vyhnúť sa častým chybám."
+  keywords="colný sadzobník, kombinovaná nomenklatúra, KN kód, zatriedenie tovaru, klasifikácia tovaru, intrastat kódy"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Praktický návod
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-20">
+              20. január 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Colný sadzobník a zatriedenie tovaru v Intrastat hláseniach
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Správne zatriedenie tovaru je kľúčové pre presné Intrastat hlásenia. Naučte sa pracovať s colným sadzobníkom a vyhnúť sa častým chybám pri klasifikácii.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-colny-sadzobnik.jpg`}
+            alt="Colný sadzobník a zatriedenie tovaru"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>Čo je colný sadzobník (Kombinovaná nomenklatúra)?</h2>
+          <p>
+            Colný sadzobník, oficiálne nazývaný Kombinovaná nomenklatúra (KN), je systematický zoznam všetkých druhov tovaru, 
+            ktoré môžu byť predmetom medzinárodného obchodu. Každý druh tovaru má priradený jedinečný 8-miestny číselný kód, 
+            ktorý presne identifikuje jeho povahu a vlastnosti.
+          </p>
+
+          <h3>Štruktúra kódu KN</h3>
+          <p>Kód KN sa skladá z 8 číslic, ktoré majú hierarchickú štruktúru:</p>
+          <ul>
+            <li><strong>Prvé 2 číslice</strong> - kapitola (napr. 84 = jadrové reaktory, kotly, stroje)</li>
+            <li><strong>Prvé 4 číslice</strong> - položka (presnejšia kategória)</li>
+            <li><strong>Prvých 6 číslic</strong> - podpoložka (ešte detailnejšie členenie)</li>
+            <li><strong>Všetkých 8 číslic</strong> - úplný kód KN (najdetailnejšie členenie)</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">Príklad kódu KN:</p>
+            <p class="text-slate-700 mb-2"><code class="bg-white px-2 py-1 rounded">8471 30 00</code> - Prenosné počítače s hmotnosťou najviac 10 kg</p>
+            <ul class="text-sm text-slate-600 mt-3 space-y-1">
+              <li>84 = Jadrové reaktory, kotly, stroje a mechanické zariadenia</li>
+              <li>8471 = Stroje na automatické spracovanie údajov</li>
+              <li>8471 30 = Prenosné stroje na automatické spracovanie údajov</li>
+              <li>8471 30 00 = Prenosné počítače s hmotnosťou najviac 10 kg</li>
+            </ul>
+          </div>
+
+          <h2>Prečo je správne zatriedenie dôležité?</h2>
+          <p>Nesprávne zatriedenie tovaru môže mať vážne dôsledky:</p>
+          <ul>
+            <li><strong>Pokuty a sankcie</strong> - Štatistický úrad môže uložiť pokutu až do výšky 3 320 EUR</li>
+            <li><strong>Nesprávne štatistiky</strong> - Ovplyvňuje národné a európske ekonomické štatistiky</li>
+            <li><strong>Problémy pri kontrole</strong> - Môže viesť k ďalším kontrolám a administratívnej záťaži</li>
+            <li><strong>Colné problémy</strong> - Pri vývoze mimo EÚ môže spôsobiť problémy s colným konaním</li>
+          </ul>
+
+          <h2>Ako správne zatriediť tovar?</h2>
+          
+          <h3>1. Identifikujte presný druh tovaru</h3>
+          <p>
+            Prvým krokom je presná identifikácia tovaru. Potrebujete poznať:
+          </p>
+          <ul>
+            <li>Materiál, z ktorého je tovar vyrobený</li>
+            <li>Účel použitia tovaru</li>
+            <li>Technické parametre a vlastnosti</li>
+            <li>Spôsob spracovania alebo výroby</li>
+          </ul>
+
+          <h3>2. Použite oficiálne zdroje</h3>
+          <p>Pre zatriedenie tovaru využívajte tieto oficiálne zdroje:</p>
+          <ul>
+            <li><strong>TARIC databáza EÚ</strong> - Integrovaný colný sadzobník Európskej únie</li>
+            <li><strong>Colný sadzobník SR</strong> - Dostupný na stránke Finančnej správy SR</li>
+            <li><strong>Vysvetlivky ku KN</strong> - Podrobné vysvetlenia k jednotlivým položkám</li>
+            <li><strong>Záväzné informácie o zatriedení tovaru (ZIZT)</strong> - Oficiálne rozhodnutie colných orgánov</li>
+          </ul>
+
+          <h3>3. Postupujte systematicky</h3>
+          <p>Pri zatrieďovaní postupujte od všeobecného k špecifickému:</p>
+          <ol>
+            <li>Určite kapitolu (prvé 2 číslice)</li>
+            <li>Nájdite správnu položku (4 číslice)</li>
+            <li>Vyberte podpoložku (6 číslic)</li>
+            <li>Určite presný kód KN (8 číslic)</li>
+          </ol>
+
+          <h2>Časté chyby pri zatrieďovaní</h2>
+          
+          <h3>1. Zatriedenie podľa obchodného názvu</h3>
+          <p>
+            <strong>Chyba:</strong> Spoliehanie sa len na obchodný názov produktu bez analýzy jeho skutočnej povahy.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Vždy analyzujte materiál, funkciu a technické vlastnosti tovaru, nie len jeho marketingový názov.
+          </p>
+
+          <h3>2. Použitie neaktuálneho sadzobníka</h3>
+          <p>
+            <strong>Chyba:</strong> Kombinovaná nomenklatúra sa každoročne aktualizuje, staré kódy môžu byť neplatné.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Vždy používajte aktuálnu verziu colného sadzobníka pre daný rok.
+          </p>
+
+          <h3>3. Nesprávne zatriedenie súprav a zostáv</h3>
+          <p>
+            <strong>Chyba:</strong> Súpravy a zostavy majú špeciálne pravidlá zatriedenia, ktoré sa často ignorujú.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Zistite, či sa na váš tovar vzťahujú pravidlá pre súpravy podľa Všeobecných pravidiel pre výklad KN.
+          </p>
+
+          <h2>Zmeny v Kombinovanej nomenklatúre</h2>
+          <p>
+            Kombinovaná nomenklatúra sa pravidelne aktualizuje, zvyčajne k 1. januáru každého roka. Zmeny môžu zahŕňať:
+          </p>
+          <ul>
+            <li>Vytvorenie nových kódov pre nové druhy tovaru</li>
+            <li>Zrušenie zastaraných kódov</li>
+            <li>Presuny tovaru medzi kategóriami</li>
+            <li>Zmeny v popisoch a poznámkach</li>
+          </ul>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Dôležité upozornenie:</p>
+            <p class="text-slate-700">
+              Pri zmene roka vždy skontrolujte, či kódy KN, ktoré používate, zostali nezmenené. 
+              Niektoré kódy môžu byť zrušené alebo presunuté do iných kategórií.
+            </p>
+          </div>
+
+          <h2>Záväzné informácie o zatriedení tovaru (ZIZT)</h2>
+          <p>
+            Ak máte pochybnosti o správnom zatriedení tovaru, môžete požiadať colné orgány o vydanie 
+            <strong>Záväzných informácií o zatriedení tovaru (ZIZT)</strong>. Toto rozhodnutie:
+          </p>
+          <ul>
+            <li>Je právne záväzné pre colné orgány v celej EÚ</li>
+            <li>Platí 3 roky od dátumu vydania</li>
+            <li>Poskytuje právnu istotu pri zatrieďovaní</li>
+            <li>Chráni vás pred sankciami za nesprávne zatriedenie</li>
+          </ul>
+
+          <h2>Praktické tipy pre správne zatriedenie</h2>
+          <ol>
+            <li><strong>Dokumentujte proces</strong> - Uchovávajte záznamy o tom, ako ste dospeli k danému kódu KN</li>
+            <li><strong>Konzultujte s odborníkmi</strong> - Pri zložitých prípadoch sa obráťte na colných poradcov</li>
+            <li><strong>Používajte konzistentne</strong> - Rovnaký tovar by mal mať vždy rovnaký kód KN</li>
+            <li><strong>Pravidelne aktualizujte</strong> - Sledujte zmeny v nomenklatúre každý rok</li>
+            <li><strong>Overujte si informácie</strong> - Pri pochybnostiach radšej overte u colných orgánov</li>
+          </ol>
+
+          <h2>Užitočné zdroje</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">TARIC databáza EÚ</a></li>
+            <li><a href="https://www.financnasprava.sk/sk/elektronicke-sluzby/verejne-sluzby/colny-sadzobnik" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Colný sadzobník SR</a></li>
+            <li><a href="https://intrastat.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Portál Finančnej správy SR pre Intrastat</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Publikované: 20. január 2025</span>
+            <span>Čítanie: 8 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Potrebujete pomoc so zatriedením tovaru?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Naši odborníci vám pomôžu správne zatriediť váš tovar a vyhnúť sa chybám v Intrastat hláseniach.
+          </p>
+          <a href="/kontakt/" class="btn-primary">
+            Kontaktovať nás
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

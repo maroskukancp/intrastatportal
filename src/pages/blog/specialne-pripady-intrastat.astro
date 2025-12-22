@@ -1,0 +1,344 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Blog', url: '/blog/' },
+  { name: 'Špeciálne prípady v Intrastat hláseniach', url: '/blog/specialne-pripady-intrastat/' }
+];
+---
+
+<Layout 
+  title="Špeciálne prípady v Intrastat hláseniach | Intrastat Portál"
+  description="Komplexný sprievodca špeciálnymi prípadmi v Intrastat vykazovaní - spracovanie tovaru, vrátenie, náhrada, rozložené zásielky, software a predaj na diaľku."
+  keywords="spracovanie tovaru, vrátenie tovaru, náhrada tovaru, rozložené zásielky, software intrastat, predaj na diaľku, opravy tovaru"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Špeciálne prípady
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-25">
+              25. január 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Špeciálne prípady v Intrastat hláseniach
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Spracovanie tovaru, vrátenie, náhrada, rozložené zásielky, software a predaj na diaľku - naučte sa správne vykazovať tieto špeciálne prípady.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-specialne-pripady.jpg`}
+            alt="Špeciálne prípady v Intrastat hláseniach"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>1. Spracovanie a opravy tovaru</h2>
+          
+          <h3>Čo je spracovanie tovaru?</h3>
+          <p>
+            Spracovanie tovaru (processing) je situácia, keď tovar je dočasne odoslaný do iného členského štátu za účelom 
+            spracowania, úpravy alebo opravy a následne je vrátený späť do pôvodného členského štátu.
+          </p>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Príklad spracovania tovaru:</p>
+            <p class="text-slate-700">
+              Slovenská firma odošle textilný materiál do Česka na farbenie. Po farbení je materiál vrátený späť na Slovensko. 
+              Tento proces zahŕňa dva pohyby tovaru, ktoré sa musia vykazovať v Intrastat hláseniach.
+            </p>
+          </div>
+
+          <h3>Ako vykazovať spracovanie tovaru?</h3>
+          <p><strong>Pri odoslaní tovaru na spracovanie:</strong></p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 41 (odoslanie tovaru na spracovanie)</li>
+            <li><strong>Štatistická hodnota:</strong> Hodnota tovaru pred spracovaním</li>
+            <li><strong>Hmotnosť:</strong> Hmotnosť tovaru pred spracovaním</li>
+          </ul>
+
+          <p><strong>Pri vrátení spracovaného tovaru:</strong></p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 51 (príjem tovaru po spracovaní)</li>
+            <li><strong>Štatistická hodnota:</strong> Hodnota tovaru po spracovaní (vrátane nákladov na spracovanie)</li>
+            <li><strong>Hmotnosť:</strong> Hmotnosť tovaru po spracovaní</li>
+          </ul>
+
+          <h3>Opravy tovaru</h3>
+          <p>
+            Opravy tovaru sa vykazujú podobne ako spracovanie, ale používajú sa iné kódy povahy transakcie:
+          </p>
+          <ul>
+            <li><strong>Kód 42:</strong> Odoslanie tovaru na opravu</li>
+            <li><strong>Kód 52:</strong> Príjem tovaru po oprave</li>
+          </ul>
+
+          <h2>2. Vrátenie a náhrada tovaru</h2>
+          
+          <h3>Vrátenie tovaru</h3>
+          <p>
+            Vrátenie tovaru nastáva, keď zákazník vráti tovar späť dodávateľovi (napr. z dôvodu reklamácie, nesúhlasu s tovarom, atď.).
+          </p>
+
+          <p><strong>Vykazovanie vrátenia:</strong></p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 21 (vrátenie tovaru)</li>
+            <li><strong>Štatistická hodnota:</strong> Pôvodná hodnota vráteného tovaru</li>
+            <li><strong>Smer:</strong> Opačný ako pri pôvodnej dodávke</li>
+          </ul>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Príklad vrátenia tovaru:</p>
+            <p class="text-slate-700">
+              Slovenská firma predala tovar českému zákazníkovi (vykazované ako odoslanie). Zákazník tovar vrátil z dôvodu reklamácie. 
+              Vrátenie sa vykazuje ako príjem tovaru z Česka s kódom transakcie 21.
+            </p>
+          </div>
+
+          <h3>Náhrada tovaru</h3>
+          <p>
+            Náhrada tovaru je situácia, keď dodávateľ poskytne náhradný tovar za chybný alebo poškodený tovar.
+          </p>
+
+          <p><strong>Vykazovanie náhrady:</strong></p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 22 (náhrada za tovar)</li>
+            <li><strong>Štatistická hodnota:</strong> Hodnota náhradného tovaru</li>
+            <li><strong>Poznámka:</strong> Vykazuje sa len pohyb náhradného tovaru, nie vrátenie chybného</li>
+          </ul>
+
+          <h2>3. Rozložené zásielky</h2>
+          
+          <h3>Čo sú rozložené zásielky?</h3>
+          <p>
+            Rozložené zásielky (split consignments) sú dodávky, pri ktorých je jeden obchodný kontrakt realizovaný 
+            viacerými čiastkovými dodávkami v priebehu času.
+          </p>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Dôležité pravidlo:</p>
+            <p class="text-slate-700">
+              Každá čiastková dodávka sa vykazuje samostatne v mesiaci, keď k nej došlo. Nie je možné kumulovať 
+              všetky dodávky a vykázať ich naraz po dokončení celej objednávky.
+            </p>
+          </div>
+
+          <h3>Vykazovanie rozložených zásielok</h3>
+          <ul>
+            <li>Každá čiastková dodávka = samostatný riadok v hlásení</li>
+            <li>Vykazuje sa v mesiaci fyzického pohybu tovaru</li>
+            <li>Hodnota a hmotnosť zodpovedá konkrétnej čiastkovej dodávke</li>
+            <li>Kód tovaru KN musí byť rovnaký pre všetky čiastkové dodávky</li>
+          </ul>
+
+          <h2>4. Software a digitálne produkty</h2>
+          
+          <h3>Fyzické nosiče so softwarom</h3>
+          <p>
+            Ak je software dodaný na fyzickom nosiči (CD, DVD, USB), vykazuje sa v Intrastat hláseniach ako hmotný tovar:
+          </p>
+          <ul>
+            <li><strong>Kód KN:</strong> Podľa typu nosiča (napr. 8523 49 10 pre optické disky)</li>
+            <li><strong>Hodnota:</strong> Celková hodnota vrátane softwaru</li>
+            <li><strong>Hmotnosť:</strong> Hmotnosť fyzického nosiča</li>
+          </ul>
+
+          <h3>Elektronicky dodaný software</h3>
+          <p>
+            Software dodaný elektronicky (download, cloud) sa <strong>nevykazuje</strong> v Intrastat hláseniach, 
+            pretože nejde o fyzický pohyb tovaru. Ide o poskytnutie služby.
+          </p>
+
+          <h2>5. Predaj tovaru na diaľku</h2>
+          
+          <h3>Čo je predaj na diaľku?</h3>
+          <p>
+            Predaj tovaru na diaľku (distance selling) je predaj tovaru konečnému spotrebiteľovi v inom členskom štáte, 
+            kde dodávateľ zabezpečuje prepravu tovaru.
+          </p>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Príklad predaja na diaľku:</p>
+            <p class="text-slate-700">
+              Slovenský e-shop predáva tovar českým spotrebiteľom cez internet. Tovar je odosielaný zo Slovenska 
+              priamo českým zákazníkom. Toto je typický prípad predaja tovaru na diaľku.
+            </p>
+          </div>
+
+          <h3>Prahy pre predaj na diaľku</h3>
+          <p>
+            Od 1. júla 2021 platí jednotný prah pre celú EÚ:
+          </p>
+          <ul>
+            <li><strong>Prah:</strong> 10 000 EUR ročne (pre všetky členské štáty spolu)</li>
+            <li><strong>Pod prahom:</strong> DPH sa platí v krajine dodávateľa</li>
+            <li><strong>Nad prahom:</strong> DPH sa platí v krajine zákazníka</li>
+          </ul>
+
+          <h3>Vykazovanie v Intrastat</h3>
+          <p>
+            Predaj tovaru na diaľku sa vykazuje v Intrastat hláseniach ako štandardné odoslanie tovaru:
+          </p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 11 (predaj)</li>
+            <li><strong>Krajina určenia:</strong> Členský štát konečného spotrebiteľa</li>
+            <li><strong>Hodnota:</strong> Predajná cena tovaru</li>
+          </ul>
+
+          <h2>6. Odpad a zvyšky</h2>
+          
+          <h3>Vykazovanie odpadu</h3>
+          <p>
+            Odpad vzniknutý pri výrobe alebo spracovaní, ktorý je odoslaný do iného členského štátu, sa vykazuje v Intrastat:
+          </p>
+          <ul>
+            <li><strong>Kód KN:</strong> Podľa druhu odpadu (kapitola 38 alebo iné)</li>
+            <li><strong>Hodnota:</strong> Trhová hodnota odpadu (ak má nejakú hodnotu)</li>
+            <li><strong>Kód transakcie:</strong> Podľa povahy transakcie (predaj, bezodplatné dodanie, atď.)</li>
+          </ul>
+
+          <h2>7. Bezodplatné dodania</h2>
+          
+          <h3>Vzorky</h3>
+          <p>
+            Vzorky tovaru dodané bezodplatne sa vykazujú v Intrastat hláseniach:
+          </p>
+          <ul>
+            <li><strong>Kód povahy transakcie:</strong> 12 (bezodplatné dodanie)</li>
+            <li><strong>Hodnota:</strong> Trhová hodnota vzoriek</li>
+            <li><strong>Hmotnosť:</strong> Skutočná hmotnosť vzoriek</li>
+          </ul>
+
+          <h3>Reklamné predmety</h3>
+          <p>
+            Reklamné predmety (propagačné materiály) sa vykazujú podobne ako vzorky, ak majú obchodnú hodnotu.
+          </p>
+
+          <h2>8. Nulové hlásenie</h2>
+          
+          <h3>Kedy podávať nulové hlásenie?</h3>
+          <p>
+            Nulové hlásenie sa podáva, keď:
+          </p>
+          <ul>
+            <li>Máte spravodajskú povinnosť (prekročili ste prah)</li>
+            <li>V danom mesiaci ste neuskutočnili žiadne pohyby tovaru</li>
+            <li>Chcete potvrdiť, že v danom mesiaci neboli žiadne transakcie</li>
+          </ul>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">Tip:</p>
+            <p class="text-slate-700">
+              Nulové hlásenie nie je povinné, ale je odporúčané ho podať, aby ste predišli upomienk am 
+              od Štatistického úradu SR.
+            </p>
+          </div>
+
+          <h2>9. Kumulácia údajov</h2>
+          
+          <h3>Čo je kumulácia?</h3>
+          <p>
+            Kumulácia údajov znamená zlúčenie viacerých menších transakcií do jedného riadku v hlásení, 
+            ak spĺňajú určité podmienky.
+          </p>
+
+          <h3>Pravidlá pre kumuláciu</h3>
+          <p>
+            Transakcie môžete kumulovať, ak:
+          </p>
+          <ul>
+            <li>Ide o rovnaký kód tovaru KN</li>
+            <li>Rovnaká krajina pôvodu/určenia</li>
+            <li>Rovnaký kód povahy transakcie</li>
+            <li>Rovnaké dodacie podmienky</li>
+          </ul>
+
+          <p><strong>Výhody kumulácie:</strong></p>
+          <ul>
+            <li>Zjednodušenie hlásenia</li>
+            <li>Menší počet riadkov v hlásení</li>
+            <li>Prehľadnejšie údaje</li>
+          </ul>
+
+          <h2>Časté chyby pri špeciálnych prípadoch</h2>
+          
+          <h3>1. Nevykazovanie vrátenia tovaru</h3>
+          <p>
+            Mnohé firmy zabúdajú vykázať vrátenie tovaru, čo vedie k nesprávnym štatistikám a možným sankciám.
+          </p>
+
+          <h3>2. Nesprávny kód transakcie</h3>
+          <p>
+            Použitie štandardného kódu transakcie namiesto špeciálneho kódu pre spracovanie, opravu alebo vrátenie.
+          </p>
+
+          <h3>3. Vykazovanie elektronických služieb</h3>
+          <p>
+            Elektronicky dodaný software alebo digitálne služby sa nevykazujú v Intrastat, len software na fyzických nosičoch.
+          </p>
+
+          <h2>Praktické tipy</h2>
+          <ol>
+            <li><strong>Evidujte všetky pohyby</strong> - Aj tie, ktoré sa zdajú byť výnimočné</li>
+            <li><strong>Používajte správne kódy</strong> - Každý špeciálny prípad má svoj kód transakcie</li>
+            <li><strong>Dokumentujte dôvody</strong> - Pri vrátení, náhrade alebo oprave uchovávajte dokumentáciu</li>
+            <li><strong>Konzultujte nejasnosti</strong> - Pri pochybnostiach sa obráťte na odborníkov</li>
+            <li><strong>Sledujte zmeny</strong> - Pravidlá sa môžu meniť, sledujte aktualizácie</li>
+          </ol>
+
+          <h2>Užitočné zdroje</h2>
+          <ul>
+            <li><a href="https://intrastat.statistics.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Štatistický úrad SR - Intrastat</a></li>
+            <li><a href="https://intrastat.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Finančná správa SR - Intrastat portál</a></li>
+            <li><a href="https://www.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Finančná správa SR</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Publikované: 25. január 2025</span>
+            <span>Čítanie: 10 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Potrebujete pomoc so špeciálnymi prípadmi?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Špeciálne prípady môžu byť náročné na vykazovanie. Naši odborníci vám pomôžu správne ich identifikovať a vykázať.
+          </p>
+          <a href="/kontakt/" class="btn-primary">
+            Kontaktovať nás
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

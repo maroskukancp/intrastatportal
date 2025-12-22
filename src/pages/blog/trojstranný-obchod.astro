@@ -1,0 +1,243 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+import CTA from '../../components/CTA.astro';
+import BreadcrumbSchema from '../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Blog', url: '/blog/' },
+  { name: 'Trojstranný obchod a nepriamy dovoz/vývoz', url: '/blog/trojstranný-obchod/' }
+];
+---
+
+<Layout 
+  title="Trojstranný obchod a nepriamy dovoz/vývoz v Intrastat | Intrastat Portál"
+  description="Komplexný sprievodca trojstranným obchodom a nepriamym dovozom/vývozom. Naučte sa správne vykazovať zložité obchodné operácie v Intrastat hláseniach."
+  keywords="trojstranný obchod, nepriamy dovoz, nepriamy vývoz, intrastat trojstranný obchod, oslobodenie od DPH, triangular trade"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Pokročilé témy
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-22">
+              22. január 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Trojstranný obchod a nepriamy dovoz/vývoz v Intrastat hláseniach
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Trojstranný obchod a nepriame pohyby tovaru patria medzi najzložitejšie prípady v Intrastat vykazovaní. Naučte sa ich správne identifikovať a vykazovať.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-trojstranný-obchod.jpg`}
+            alt="Trojstranný obchod a nepriamy dovoz/vývoz"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>Čo je trojstranný obchod?</h2>
+          <p>
+            Trojstranný obchod (triangular trade) je obchodná operácia, pri ktorej sa tovar fyzicky premiestňuje medzi tromi členskými štátmi EÚ, 
+            pričom v obchode participujú tri rôzne subjekty. Typicky ide o situáciu, kde:
+          </p>
+          <ul>
+            <li>Subjekt A (z členského štátu 1) predá tovar subjektu B (z členského štátu 2)</li>
+            <li>Subjekt B predá ten istý tovar subjektu C (z členského štátu 3)</li>
+            <li>Tovar sa fyzicky premiestni priamo z členského štátu 1 do členského štátu 3</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Príklad trojstranného obchodu:</p>
+            <ol class="text-slate-700 space-y-2">
+              <li><strong>1.</strong> Nemecký výrobca (DE) predá tovar slovenskému obchodníkovi (SK)</li>
+              <li><strong>2.</strong> Slovenský obchodník (SK) predá ten istý tovar českému zákazníkovi (CZ)</li>
+              <li><strong>3.</strong> Tovar sa fyzicky premiestni priamo z Nemecka (DE) do Česka (CZ)</li>
+              <li><strong>4.</strong> Tovar nikdy fyzicky nevstúpi na územie Slovenska</li>
+            </ol>
+          </div>
+
+          <h2>Vykazovanie trojstranného obchodu</h2>
+          
+          <h3>Pre prostredného obchodníka (SK v našom príklade)</h3>
+          <p>
+            Slovenský obchodník má špeciálny režim vykazovania:
+          </p>
+          <ul>
+            <li><strong>Intrastat príjem:</strong> Vykazuje príjem tovaru z Nemecka (hoci tovar fyzicky neprešiel cez SK)</li>
+            <li><strong>Intrastat odoslanie:</strong> Vykazuje odoslanie tovaru do Česka</li>
+            <li><strong>DPH:</strong> Môže využiť zjednodušený režim oslobodenia od DPH podľa § 43 zákona o DPH</li>
+            <li><strong>Kód povahy transakcie:</strong> Používa sa špeciálny kód 21 alebo 29</li>
+          </ul>
+
+          <h3>Podmienky pre uplatnenie zjednodušeného režimu</h3>
+          <p>Pre uplatnenie oslobodenia od DPH pri trojstrannom obchode musia byť splnené tieto podmienky:</p>
+          <ol>
+            <li>Tovar sa fyzicky premiestni z jedného členského štátu do druhého</li>
+            <li>Prostredný obchodník je identifikovaný pre DPH v inom členskom štáte</li>
+            <li>Nadobúdateľ je platiteľom DPH v členskom štáte určenia</li>
+            <li>Prostredný obchodník použije DIČ členského štátu určenia</li>
+          </ol>
+
+          <h2>Nepriamy dovoz a vývoz</h2>
+          
+          <h3>Čo je nepriamy dovoz?</h3>
+          <p>
+            Nepriamy dovoz nastáva, keď slovenská firma nakúpi tovar od dodávateľa z iného členského štátu EÚ, 
+            ale tovar je dodaný priamo konečnému zákazníkovi v treťom členskom štáte, bez toho aby fyzicky vstúpil na územie SR.
+          </p>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Príklad nepriameho dovozu:</p>
+            <p class="text-slate-700">
+              Slovenská firma objedná tovar od poľského dodávateľa. Poľský dodávateľ odošle tovar priamo 
+              slovenskému zákazníkovi (konečnému užívateľovi) na Slovensku. Slovenská firma vystupuje ako sprostredkovateľ.
+            </p>
+            <p class="text-slate-700 mt-3">
+              <strong>Vykazovanie:</strong> Slovenská firma vykazuje príjem z Poľska, aj keď tovar neprešiel cez jej sklad.
+            </p>
+          </div>
+
+          <h3>Čo je nepriamy vývoz?</h3>
+          <p>
+            Nepriamy vývoz je opačná situácia - slovenská firma predá tovar zákazníkovi v inom členskom štáte, 
+            ale tovar je dodaný priamo od slovenského dodávateľa konečnému zákazníkovi v zahraničí.
+          </p>
+
+          <h2>Oslobodenie od DPH pri dodaní do iného členského štátu</h2>
+          <p>
+            Pri dodaní tovaru do iného členského štátu môže byť uplatnené oslobodenie od DPH podľa § 43 zákona o DPH. 
+            Podmienky pre oslobodenie:
+          </p>
+          <ul>
+            <li>Tovar je odoslaný alebo prepravený do iného členského štátu</li>
+            <li>Dodávateľ alebo nadobúdateľ zabezpečí prepravu</li>
+            <li>Nadobúdateľ je identifikovaný pre DPH v inom členskom štáte</li>
+            <li>Dodávateľ má dôkaz o preprave tovaru (CMR, faktúra, atď.)</li>
+          </ul>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Dôležité upozornenie:</p>
+            <p class="text-slate-700">
+              Pre uplatnenie oslobodenia od DPH je nevyhnutné mať riadnu dokumentáciu preukazujúcu fyzický pohyb tovaru 
+              do iného členského štátu. Bez tejto dokumentácie môže byť oslobodenie zamietnuté.
+            </p>
+          </div>
+
+          <h2>Dokumentácia potrebná pre trojstranný obchod</h2>
+          <p>Pre správne vykazovanie a uplatnenie daňových výhod je potrebné uchovávať:</p>
+          <ul>
+            <li><strong>Faktúry</strong> - Od všetkých zúčastnených strán</li>
+            <li><strong>Prepravné doklady</strong> - CMR, nákladné listy, potvrdenie o dodaní</li>
+            <li><strong>Objednávky</strong> - Dokumentujúce obchodné vzťahy</li>
+            <li><strong>Potvrdenie DIČ</strong> - Overenie platnosti DIČ nadobúdateľa cez VIES</li>
+            <li><strong>Korešpondencia</strong> - E-maily a iná komunikácia týkajúca sa obchodu</li>
+          </ul>
+
+          <h2>Časté chyby pri vykazovaní trojstranného obchodu</h2>
+          
+          <h3>1. Nevykazovanie pohybu tovaru</h3>
+          <p>
+            <strong>Chyba:</strong> Prostredný obchodník si myslí, že keď tovar fyzicky neprešiel cez jeho sklad, 
+            nemusí vykazovať žiadne pohyby v Intrastat.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Aj pri trojstrannom obchode je potrebné vykazovať príjem aj odoslanie tovaru v Intrastat hláseniach.
+          </p>
+
+          <h3>2. Nesprávny kód povahy transakcie</h3>
+          <p>
+            <strong>Chyba:</strong> Použitie štandardného kódu transakcie namiesto špeciálneho kódu pre trojstranný obchod.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Pre trojstranný obchod používajte kódy 21 (nákup) alebo 29 (predaj).
+          </p>
+
+          <h3>3. Nedostatočná dokumentácia</h3>
+          <p>
+            <strong>Chyba:</strong> Nedostatočné dôkazy o fyzickom pohybe tovaru medzi členskými štátmi.
+          </p>
+          <p>
+            <strong>Riešenie:</strong> Vždy uchovávajte kompletné prepravné doklady a faktúry od všetkých zúčastnených strán.
+          </p>
+
+          <h2>Kontrola DIČ cez systém VIES</h2>
+          <p>
+            Pri trojstrannom obchode je kľúčové overiť platnosť DIČ obchodných partnerov cez systém VIES 
+            (VAT Information Exchange System). Toto overenie:
+          </p>
+          <ul>
+            <li>Potvrdzuje, že partner je registrovaný pre DPH v príslušnom členskom štáte</li>
+            <li>Slúži ako dôkaz pri uplatňovaní oslobodenia od DPH</li>
+            <li>Chráni vás pred podvodmi s DPH</li>
+            <li>Je dostupné online na stránke Európskej komisie</li>
+          </ul>
+
+          <h2>Praktické tipy pre trojstranný obchod</h2>
+          <ol>
+            <li><strong>Dokumentujte všetko</strong> - Uchovávajte všetky doklady minimálne 10 rokov</li>
+            <li><strong>Overujte DIČ</strong> - Vždy pred transakciou overte platnosť DIČ cez VIES</li>
+            <li><strong>Komunikujte jasne</strong> - Uistite sa, že všetky strany rozumejú svojim povinnostiam</li>
+            <li><strong>Sledujte fyzický pohyb</strong> - Dokumentujte skutočnú cestu tovaru</li>
+            <li><strong>Konzultujte s odborníkmi</strong> - Pri zložitých prípadoch sa obráťte na daňových poradcov</li>
+          </ol>
+
+          <h2>Zmeny v roku 2026</h2>
+          <p>
+            V rámci modernizácie Intrastat systému sa pripravujú zmeny, ktoré ovplyvnia aj vykazovanie trojstranného obchodu. 
+            Sledujte aktualizácie od Štatistického úradu SR a Finančnej správy SR.
+          </p>
+
+          <h2>Užitočné zdroje</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/vies/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">VIES - Overenie DIČ</a></li>
+            <li><a href="https://www.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Finančná správa SR</a></li>
+            <li><a href="https://intrastat.statistics.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Štatistický úrad SR - Intrastat</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Publikované: 22. január 2025</span>
+            <span>Čítanie: 9 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Potrebujete pomoc s trojstranným obchodom?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Trojstranný obchod môže byť zložitý. Naši odborníci vám pomôžu správne vykazovať tieto operácie a vyhnúť sa chybám.
+          </p>
+          <a href="/kontakt/" class="btn-primary">
+            Kontaktovať nás
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
