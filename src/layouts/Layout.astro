@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StructuredData from '../components/StructuredData.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import { getLangFromUrl } from '../i18n/translations';
 
 interface Props {
@@ -62,6 +63,9 @@ const enURL = new URL('/en' + currentPath + '/', Astro.site);
     <!-- Structured Data -->
     <StructuredData type="organization" />
     <StructuredData type="website" />
+    
+    <!-- Google Analytics -->
+    <GoogleAnalytics />
     
     <title>{title}</title>
   </head>
