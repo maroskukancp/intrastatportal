@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const terms = [
+  {
+    term: "Combined Nomenclature (CN)",
+    definition: "A systematic designation of goods by numerical code. Used for classification of goods in Intrastat reports."
+  },
+  {
+    term: "Delivery Terms",
+    definition: "Terms of delivery according to Incoterms (e.g. EXW, FOB, CIF). Determines who bears the costs and risks during transport."
+  },
+  {
+    term: "Import (Arrival)",
+    definition: "Goods that entered the territory of Slovakia from another EU member state."
+  },
+  {
+    term: "Financial Administration of the Slovak Republic",
+    definition: "The authority to which Intrastat reports are submitted for VAT purposes."
+  },
+  {
+    term: "Net Weight",
+    definition: "Weight of goods without packaging and means of transport. Stated in kilograms."
+  },
+  {
+    term: "Intrastat",
+    definition: "A system for collecting data on trade in goods between European Union member states."
+  },
+  {
+    term: "Commodity Code",
+    definition: "An 8-digit numerical code from the Combined Nomenclature that precisely identifies the type of goods."
+  },
+  {
+    term: "Country of Origin",
+    definition: "The state in which the goods were manufactured or substantially transformed."
+  },
+  {
+    term: "Country of Destination",
+    definition: "The EU member state to which goods are dispatched for final consumption or further processing."
+  },
+  {
+    term: "EU Member State",
+    definition: "A country that is a member of the European Union. Intrastat tracks trade between these states."
+  },
+  {
+    term: "Nature of Transaction",
+    definition: "A code indicating the nature of the transaction (e.g. purchase/sale, return of goods, free supply)."
+  },
+  {
+    term: "Dispatch (Export)",
+    definition: "Goods that left the territory of Slovakia and were dispatched to another EU member state."
+  },
+  {
+    term: "Exemption Threshold",
+    definition: "The value of trade in EUR at which the obligation to submit Intrastat reports arises. For 2025, this is EUR 1,000,000."
+  },
+  {
+    term: "Statistical Value",
+    definition: "The value of goods in EUR converted according to delivery terms to the Slovak border."
+  },
+  {
+    term: "Statistical Office of the Slovak Republic",
+    definition: "The authority responsible for collecting and processing Intrastat data for statistical purposes."
+  },
+  {
+    term: "Submission Deadline",
+    definition: "The report must be submitted by the 15th calendar day after the end of the reporting month."
+  },
+  {
+    term: "Goods",
+    definition: "Tangible property that is the subject of trade between EU member states."
+  },
+  {
+    term: "Transaction Value",
+    definition: "The invoiced value of goods in EUR excluding VAT."
+  },
+  {
+    term: "Own Weight",
+    definition: "Weight of goods including all packaging, except transport containers."
+  },
+  {
+    term: "Exemptions from Obligation",
+    definition: "Certain types of goods and transactions are exempt from reporting obligations (e.g. currency, securities)."
+  },
+  {
+    term: "Simplified Report",
+    definition: "A report with a limited scope of data for companies with lower trade volumes."
+  },
+  {
+    term: "Supplementary Unit",
+    definition: "An additional unit of measurement required for certain types of goods (e.g. pieces, pairs, liters)."
+  },
+  {
+    term: "Regime",
+    definition: "The customs regime in which the goods are located (e.g. free circulation, temporary import)."
+  },
+  {
+    term: "Penalties",
+    definition: "Fines for non-submission or incorrect submission of Intrastat reports can reach up to EUR 3,320."
+  }
+];
+---
+
+<Layout 
+  title="Glossary of Terms - Intrastat Portal"
+  description="Comprehensive glossary of Intrastat terms and terminology. Explanation of key concepts related to Intrastat reporting and trade within the EU."
+  keywords="intrastat glossary, intrastat terms, combined nomenclature, exemption threshold, intrastat terminology"
+>
+  <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          Glossary of Terms
+        </h1>
+        <p class="text-xl text-slate-600">
+          A comprehensive overview of the most important terms and concepts related to Intrastat reporting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-lg">
+          <p class="text-slate-700">
+            <strong>Tip:</strong> This glossary will help you better understand the terminology used in Intrastat reports. 
+            If you have questions or need help with reporting, <a href="/en/kontakt/" class="text-primary-600 hover:text-primary-700 underline">contact us</a>.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {terms.map((item) => (
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                {item.term}
+              </h3>
+              <p class="text-slate-600 leading-relaxed">
+                {item.definition}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 bg-slate-50 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">
+            Need help with Intrastat reporting?
+          </h2>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Our experts will be happy to help you with goods classification, report completion, or explanation of any term.
+          </p>
+          <a 
+            href="/en/kontakt/" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

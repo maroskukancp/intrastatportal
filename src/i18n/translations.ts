@@ -14,6 +14,7 @@ export const translations = {
     'nav.howItWorks': 'Ako to funguje',
     'nav.pricing': 'Cenník',
     'nav.faq': 'Časté otázky',
+    'nav.glossary': 'Slovník',
     'nav.blog': 'Blog',
     'nav.contact': 'Kontakt',
     
@@ -135,6 +136,7 @@ export const translations = {
     'nav.howItWorks': 'How it works',
     'nav.pricing': 'Pricing',
     'nav.faq': 'FAQ',
+    'nav.glossary': 'Glossary',
     'nav.blog': 'Blog',
     'nav.contact': 'Contact',
     

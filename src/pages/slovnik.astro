@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const terms = [
+  {
+    term: "Colný sadzobník (KN)",
+    definition: "Kombinovaná nomenklatúra - systematické označenie tovaru číselným kódom. Používa sa na klasifikáciu tovaru v Intrastat hláseniach."
+  },
+  {
+    term: "Dodacia podmienka",
+    definition: "Podmienky dodania tovaru podľa Incoterms (napr. EXW, FOB, CIF). Určuje, kto znáša náklady a riziká pri preprave."
+  },
+  {
+    term: "Dovoz (Príjem)",
+    definition: "Tovar, ktorý vstúpil na územie SR z iného členského štátu EÚ."
+  },
+  {
+    term: "Finančná správa SR",
+    definition: "Orgán, ktorému sa podávajú Intrastat hlásenia pre účely DPH."
+  },
+  {
+    term: "Hmotnosť netto",
+    definition: "Hmotnosť tovaru bez obalu a prepravných prostriedkov. Uvádza sa v kilogramoch."
+  },
+  {
+    term: "Intrastat",
+    definition: "Systém zberu údajov o obchode s tovarom medzi členskými štátmi Európskej únie."
+  },
+  {
+    term: "Kód tovaru",
+    definition: "8-miestny číselný kód z Kombinovanej nomenklatúry, ktorý presne identifikuje druh tovaru."
+  },
+  {
+    term: "Krajina pôvodu",
+    definition: "Štát, v ktorom bol tovar vyrobený alebo podstatne zmenený."
+  },
+  {
+    term: "Krajina určenia",
+    definition: "Členský štát EÚ, do ktorého je tovar odoslaný na konečnú spotrebu alebo ďalšie spracovanie."
+  },
+  {
+    term: "Členský štát EÚ",
+    definition: "Krajina, ktorá je členom Európskej únie. Pre Intrastat sa sleduje obchod medzi týmito štátmi."
+  },
+  {
+    term: "Obchodná transakcia",
+    definition: "Kód označujúci povahu transakcie (napr. kúpa/predaj, vrátenie tovaru, bezodplatné dodanie)."
+  },
+  {
+    term: "Odoslanie (Vývoz)",
+    definition: "Tovar, ktorý opustil územie SR a bol odoslaný do iného členského štátu EÚ."
+  },
+  {
+    term: "Prah oslobodenia",
+    definition: "Hodnota obchodu v EUR, pri ktorej vzniká povinnosť podávať Intrastat hlásenia. Pre rok 2025 je to 1 000 000 EUR."
+  },
+  {
+    term: "Štatistická hodnota",
+    definition: "Hodnota tovaru v EUR prepočítaná podľa dodacích podmienok na hranicu SR."
+  },
+  {
+    term: "Štatistický úrad SR",
+    definition: "Orgán zodpovedný za zber a spracovanie Intrastat údajov pre štatistické účely."
+  },
+  {
+    term: "Termín podania",
+    definition: "Hlásenie sa podává do 15. kalendárneho dňa po skončení sledovaného mesiaca."
+  },
+  {
+    term: "Tovar",
+    definition: "Hmotný majetok, ktorý je predmetom obchodu medzi členskými štátmi EÚ."
+  },
+  {
+    term: "Transakčná hodnota",
+    definition: "Fakturovaná hodnota tovaru v EUR bez DPH."
+  },
+  {
+    term: "Vlastná hmotnosť",
+    definition: "Hmotnosť tovaru vrátane všetkých obalov, okrem prepravných kontajnerov."
+  },
+  {
+    term: "Výnimky z povinnosti",
+    definition: "Určité typy tovaru a transakcií sú vyňaté z povinnosti hlásenia (napr. mena, cenné papiere)."
+  },
+  {
+    term: "Zjednodušené hlásenie",
+    definition: "Hlásenie s obmedzeným rozsahom údajov pre firmy s nižším objemom obchodu."
+  },
+  {
+    term: "Doplnková merná jednotka",
+    definition: "Dodatočná jednotka merania požadovaná pre niektoré druhy tovaru (napr. kusy, páry, litre)."
+  },
+  {
+    term: "Režim",
+    definition: "Colný režim, v ktorom sa tovar nachádza (napr. voľný obeh, dočasný dovoz)."
+  },
+  {
+    term: "Sankcie",
+    definition: "Pokuty za nepodanie alebo nesprávne podanie Intrastat hlásenia môžu dosiahnuť až 3 320 EUR."
+  }
+];
+---
+
+<Layout 
+  title="Slovník pojmov - Intrastat Portál"
+  description="Komplexný slovník Intrastat pojmov a termínov. Vysvetlenie kľúčových pojmov súvisiacich s Intrastat hláseniami a obchodom v rámci EÚ."
+  keywords="intrastat slovník, intrastat pojmy, colný sadzobník, kombinovaná nomenklatúra, prah oslobodenia, intrastat terminológia"
+>
+  <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          Slovník pojmov
+        </h1>
+        <p class="text-xl text-slate-600">
+          Komplexný prehľad najdôležitejších pojmov a termínov súvisiacich s Intrastat hláseniami.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-lg">
+          <p class="text-slate-700">
+            <strong>Tip:</strong> Tento slovník vám pomôže lepšie pochopiť terminológiu používanú v Intrastat hláseniach. 
+            Ak máte otázky alebo potrebujete pomoc s hlásením, <a href="/kontakt/" class="text-primary-600 hover:text-primary-700 underline">kontaktujte nás</a>.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {terms.map((item) => (
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                {item.term}
+              </h3>
+              <p class="text-slate-600 leading-relaxed">
+                {item.definition}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 bg-slate-50 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">
+            Potrebujete pomoc s Intrastat hlásením?
+          </h2>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Naši odborníci vám radi pomôžu s klasifikáciou tovaru, vyplnením hlásenia alebo vysvetlením akéhokoľvek pojmu.
+          </p>
+          <a 
+            href="/kontakt/" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+          >
+            Kontaktovať nás
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
