@@ -11,8 +11,8 @@ const t = useTranslations(lang);
       <div class="flex-1">
         <p class="text-sm md:text-base">
           {lang === 'sk' 
-            ? 'Táto webová stránka používa cookies na zlepšenie vášho zážitku a na analytické účely. Používaním tejto stránky súhlasíte s používaním cookies.'
-            : 'This website uses cookies to improve your experience and for analytics purposes. By using this site, you consent to the use of cookies.'
+            ? 'Táto stránka používa cookies na analytické účely. Pokračovaním v používaní stránky súhlasíte s ich používaním. Môžete ich odmietnuť kliknutím na tlačidlo nižšie.'
+            : 'This site uses cookies for analytics. By continuing to use this site, you consent to their use. You can opt out by clicking the button below.'
           }
           <a href={`${lang === 'sk' ? '' : '/en'}/cookies`} class="underline hover:text-primary-400 ml-1">
             {lang === 'sk' ? 'Viac informácií' : 'More information'}
@@ -24,13 +24,13 @@ const t = useTranslations(lang);
           id="cookie-accept" 
           class="px-6 py-2 bg-primary-600 hover:bg-primary-700 rounded-lg font-semibold transition-colors whitespace-nowrap"
         >
-          {lang === 'sk' ? 'Súhlasím' : 'Accept'}
+          {lang === 'sk' ? 'Rozumiem' : 'Got it'}
         </button>
         <button 
           id="cookie-decline" 
           class="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-semibold transition-colors whitespace-nowrap"
         >
-          {lang === 'sk' ? 'Odmietnuť' : 'Decline'}
+          {lang === 'sk' ? 'Odmietnuť' : 'Opt out'}
         </button>
       </div>
     </div>
@@ -42,24 +42,18 @@ const t = useTranslations(lang);
   const cookieConsent = localStorage.getItem('cookieConsent');
   const consentBanner = document.getElementById('cookie-consent');
   
+  // Show banner only if user hasn't made a choice yet
   if (!cookieConsent && consentBanner) {
     consentBanner.classList.remove('hidden');
   }
   
-  // Accept cookies
+  // Accept/acknowledge cookies (analytics already enabled by default)
   document.getElementById('cookie-accept')?.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'accepted');
     consentBanner?.classList.add('hidden');
-    
-    // Enable Google Analytics if it was disabled
-    if (window.gtag) {
-      window.gtag('consent', 'update', {
-        'analytics_storage': 'granted'
-      });
-    }
   });
   
-  // Decline cookies
+  // Decline/opt-out of cookies
   document.getElementById('cookie-decline')?.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'declined');
     consentBanner?.classList.add('hidden');
@@ -71,7 +65,10 @@ const t = useTranslations(lang);
       });
     }
     
-    // Disable GA tracking
+    // Disable GA tracking immediately
     window['ga-disable-G-J93S09JDJL'] = true;
+    
+    // Reload page to apply changes
+    window.location.reload();
   });
 </script>

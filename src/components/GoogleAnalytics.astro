@@ -1,27 +1,28 @@
 ---
-// Google Analytics 4 tracking code with consent mode
+// Google Analytics 4 tracking code with consent mode (opt-out model)
 const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || 'G-J93S09JDJL';
 ---
 
-<!-- Google tag (gtag.js) with Consent Mode -->
+<!-- Google tag (gtag.js) with Consent Mode - Opt-out model -->
 <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
 <script define:vars={{ GA_MEASUREMENT_ID }}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   
-  // Default consent mode - deny until user accepts
+  // Check if user has explicitly declined
+  const cookieConsent = localStorage.getItem('cookieConsent');
+  const isDeclined = cookieConsent === 'declined';
+  
+  // Default: analytics enabled unless user has declined
   gtag('consent', 'default', {
-    'analytics_storage': 'denied'
+    'analytics_storage': isDeclined ? 'denied' : 'granted'
   });
+  
+  // Disable GA if user declined
+  if (isDeclined) {
+    window['ga-disable-' + GA_MEASUREMENT_ID] = true;
+  }
   
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID);
-  
-  // Check if user has already consented
-  const cookieConsent = localStorage.getItem('cookieConsent');
-  if (cookieConsent === 'accepted') {
-    gtag('consent', 'update', {
-      'analytics_storage': 'granted'
-    });
-  }
 </script>
