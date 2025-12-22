@@ -13,11 +13,10 @@ function getLocalizedPath(targetLang: string) {
 }
 ---
 
-<div class="relative inline-block text-left">
+<div class="relative inline-block text-left language-switcher">
   <button
     type="button"
-    class="inline-flex items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 border border-slate-200"
-    id="language-menu-button"
+    class="language-switcher-button inline-flex items-center justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 border border-slate-200"
     aria-expanded="false"
     aria-haspopup="true"
   >
@@ -28,11 +27,9 @@ function getLocalizedPath(targetLang: string) {
   </button>
   
   <div
-    class="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
-    id="language-menu"
+    class="language-switcher-menu absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
     role="menu"
     aria-orientation="vertical"
-    aria-labelledby="language-menu-button"
   >
     <div class="py-1" role="none">
       {Object.entries(languages).map(([code, name]) => (
@@ -49,16 +46,19 @@ function getLocalizedPath(targetLang: string) {
 </div>
 
 <script>
-  const button = document.getElementById('language-menu-button');
-  const menu = document.getElementById('language-menu');
-  
-  button?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
+  document.querySelectorAll('.language-switcher').forEach((switcher) => {
+    const button = switcher.querySelector('.language-switcher-button');
+    const menu = switcher.querySelector('.language-switcher-menu');
+    
+    button?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu?.classList.toggle('hidden');
+    });
   });
   
-  document.addEventListener('click', (e) => {
-    if (!button?.contains(e.target as Node) && !menu?.contains(e.target as Node)) {
-      menu?.classList.add('hidden');
-    }
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.language-switcher-menu').forEach((menu) => {
+      menu.classList.add('hidden');
+    });
   });
 </script>
