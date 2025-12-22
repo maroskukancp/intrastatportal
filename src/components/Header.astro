@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const prefix = lang === 'sk' ? '' : '/en';
+const prefix = lang === 'sk' ? '' : `/${lang}`;
 
 const navigation = [
   { name: t('nav.home'), href: `${base}${prefix}/` },

@@ -14,7 +14,7 @@ const t = useTranslations(lang);
             ? 'Táto stránka používa cookies na analytické účely. Pokračovaním v používaní stránky súhlasíte s ich používaním. Môžete ich odmietnuť kliknutím na tlačidlo nižšie.'
             : 'This site uses cookies for analytics. By continuing to use this site, you consent to their use. You can opt out by clicking the button below.'
           }
-          <a href={`${lang === 'sk' ? '' : '/en'}/cookies`} class="underline hover:text-primary-400 ml-1">
+          <a href={`${lang === 'sk' ? '' : `/${lang}`}/cookies`} class="underline hover:text-primary-400 ml-1">
             {lang === 'sk' ? 'Viac informácií' : 'More information'}
           </a>
         </p>
