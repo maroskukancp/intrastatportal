@@ -13,16 +13,52 @@ const faqs = [
   { q: t('faq.q4'), a: t('faq.a4') },
   { q: t('faq.q5'), a: t('faq.a5') },
   {
-    q: 'Môžete podať hlásenie aj spätne?',
-    a: 'Áno, hlásenia môžeme spracovať a podať aj spätne za predchádzajúce obdobia. Kontaktujte nás a preberieme vašu situáciu.',
-  },
-  {
-    q: 'Ako dlho trvá spracovanie hlásenia?',
-    a: 'Štandardne spracujeme hlásenie do 3-5 pracovných dní od doručenia kompletných podkladov. V prípade urgentnej potreby vieme zabezpečiť expresné spracovanie.',
+    q: 'Musí fyzická osoba podávať Intrastat hlásenia?',
+    a: 'Áno, aj fyzická osoba má povinnosť podávať Intrastat hlásenia, ak prekročí prah oslobodenia. Povinnosť sa nevzťahuje len na právnické osoby, ale na všetkých subjekty, ktoré uskutočňujú obchod s tovarom v rámci EÚ.',
   },
   {
     q: 'Čo ak prekročím prah oslobodenia počas roka?',
-    a: 'Ak počas roka prekročíte prah oslobodenia (1 000 000 EUR pre rok 2025), vzniká vám povinnosť podávať hlásenia od mesiaca prekročenia. Kontaktujte nás a pomôžeme vám s nastavením procesu.',
+    a: 'Ak počas roka prekročíte prah oslobodenia (1 000 000 EUR pre rok 2025), vzniká vám povinnosť podávať hlásenia od mesiaca prekročenia. Je potrebné sledovať kumulatívnu hodnotu obchodu a včas reagovať na vznik povinnosti.',
+  },
+  {
+    q: 'Môžete podať hlásenie aj spätne?',
+    a: 'Áno, hlásenia môžeme spracovať a podať aj spätne za predchádzajúce obdobia. V prípade omeškania je však potrebné počítať s možnými sankciami zo strany Štatistického úradu SR.',
+  },
+  {
+    q: 'Ako dlho trvá spracovanie hlásenia?',
+    a: 'Štandardne spracujeme hlásenie do 3-5 pracovných dní od doručenia kompletných podkladov. V prípade urgentnej potreby vieme zabezpečiť expresné spracovanie do 24 hodín.',
+  },
+  {
+    q: 'Hlásia sa aj služby v Intrastat hláseniach?',
+    a: 'Nie, Intrastat hlásenia sa týkajú výhradne obchodu s tovarom. Služby sa v Intrastat hláseniach neuvádzajú, aj keď môžu podliehať iným oznamovacím povinnostiam pre štatistické účely.',
+  },
+  {
+    q: 'Ako sa hlási tovar, ktorý prešiel spracovaním?',
+    a: 'Tovar, ktorý bol dovezený na spracovanie a následne vyvezený, sa hlási v oboch smeroch. Pri dovoze sa uvádza pôvodný tovar a pri vývoze spracovaný tovar s príslušným kódom transakcie.',
+  },
+  {
+    q: 'Hlásia sa vzorky a reklamné predmety?',
+    a: 'Áno, vzorky a reklamné predmety sa hlásia, ak majú obchodnú hodnotu a sú súčasťou obchodu v rámci EÚ. Uvádzajú sa s príslušným kódom povahy transakcie.',
+  },
+  {
+    q: 'Ako sa hlási obalový materiál?',
+    a: 'Obalový materiál, ktorý je neoddeliteľnou súčasťou tovaru (napr. fľaša na nápoj), sa hlási spolu s tovarom. Prepravné obaly, ktoré sa vracajú, sa nehlásia.',
+  },
+  {
+    q: 'Aký kurz sa používa na prepočet cudzej meny?',
+    a: 'Používa sa kurz Európskej centrálnej banky (ECB) platný v deň vzniku daňovej povinnosti alebo kurz Národnej banky Slovenska. Dôležité je používať konzistentne jeden zdroj kurzov.',
+  },
+  {
+    q: 'Aké dokumenty si Štatistický úrad môže vyžiadať?',
+    a: 'Štatistický úrad SR môže vyžiadať faktúry, dodacie listy, prepravné doklady, zmluvy a ďalšie dokumenty preukazujúce uskutočnenie obchodu a správnosť údajov v hlásení.',
+  },
+  {
+    q: 'Je možné opraviť už podané hlásenie?',
+    a: 'Áno, chybné alebo neúplné hlásenie je možné opraviť podaním opravného hlásenia. Oprava by mala byť vykonaná čo najskôr po zistení chyby.',
+  },
+  {
+    q: 'Kto môže podať Intrastat hlásenie za firmu?',
+    a: 'Hlásenie môže podať štatutárny zástupca firmy, splnomocnená osoba alebo externý spracovateľ s platnou plnou mocou. Zodpovednosť za správnosť údajov nesie vždy oznamovateľ.',
   },
 ];
 ---
