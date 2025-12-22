@@ -1,9 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/translations';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Slovník pojmov', url: '/slovnik/' }
+];
 
 const terms = [
   {
@@ -110,6 +116,8 @@ const terms = [
   description="Komplexný slovník Intrastat pojmov a termínov. Vysvetlenie kľúčových pojmov súvisiacich s Intrastat hláseniami a obchodom v rámci EÚ."
   keywords="intrastat slovník, intrastat pojmy, colný sadzobník, kombinovaná nomenklatúra, prah oslobodenia, intrastat terminológia"
 >
+  <BreadcrumbSchema items={breadcrumbs} />
+  
   <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white">
     <div class="container-custom">
       <div class="max-w-3xl">

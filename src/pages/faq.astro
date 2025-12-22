@@ -2,9 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/translations';
 import CTA from '../components/CTA.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Časté otázky', url: '/faq/' }
+];
 
 const faqs = [
   { q: t('faq.q1'), a: t('faq.a1') },
@@ -64,6 +70,8 @@ const faqs = [
 ---
 
 <Layout title={`${t('nav.faq')} | Intrastat Portál`} description="Často kladené otázky o Intrastat hláseniach. Zistite všetko o povinnostiach, termínoch a sankciách.">
+  <BreadcrumbSchema items={breadcrumbs} />
+  
   <!-- Page Header -->
   <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
     <div class="container-custom">

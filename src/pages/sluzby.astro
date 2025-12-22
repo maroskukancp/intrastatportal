@@ -2,12 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/translations';
 import CTA from '../components/CTA.astro';
+import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const prefix = lang === 'sk' ? '' : '/en';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Domov', url: '/' },
+  { name: 'Služby', url: '/sluzby/' }
+];
 
 const services = [
   {
@@ -62,6 +68,8 @@ const services = [
 ---
 
 <Layout title={`${t('nav.services')} | Intrastat Portál`} description="Komplexné služby spracovania Intrastat hlásení - spracovanie, poradenstvo, zastupovanie a školenia.">
+  <BreadcrumbSchema items={breadcrumbs} />
+  
   <!-- Page Header -->
   <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
     <div class="container-custom">
