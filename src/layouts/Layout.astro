@@ -19,9 +19,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Generate alternate language URLs for hreflang
-const currentPath = Astro.url.pathname.replace(/^\/en/, '').replace(/\/$/, '') || '/';
+const currentPath = Astro.url.pathname.replace(/^\/(en|hu)/, '').replace(/\/$/, '') || '/';
 const skURL = new URL(currentPath === '/' ? '/' : currentPath + '/', Astro.site);
-const enURL = new URL('/en' + currentPath + '/', Astro.site);
+const enURL = new URL('/en' + (currentPath === '/' ? '/' : currentPath + '/'), Astro.site);
+const huURL = new URL('/hu' + (currentPath === '/' ? '/' : currentPath + '/'), Astro.site);
 ---
 
 <!doctype html>
@@ -39,6 +40,7 @@ const enURL = new URL('/en' + currentPath + '/', Astro.site);
     <!-- Hreflang tags for multilingual SEO -->
     <link rel="alternate" hreflang="sk" href={skURL} />
     <link rel="alternate" hreflang="en" href={enURL} />
+    <link rel="alternate" hreflang="hu" href={huURL} />
     <link rel="alternate" hreflang="x-default" href={skURL} />
     
     <!-- Open Graph -->
@@ -46,7 +48,7 @@ const enURL = new URL('/en' + currentPath + '/', Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:locale" content={lang === 'sk' ? 'sk_SK' : 'en_US'} />
+    <meta property="og:locale" content={lang === 'sk' ? 'sk_SK' : lang === 'hu' ? 'hu_HU' : 'en_US'} />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />

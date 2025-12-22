@@ -12,7 +12,7 @@ export default defineConfig({
   integrations: [tailwind(), sitemap()],
   i18n: {
     defaultLocale: 'sk',
-    locales: ['sk', 'en'],
+    locales: ['sk', 'en', 'hu'],
     routing: {
       prefixDefaultLocale: false
     }

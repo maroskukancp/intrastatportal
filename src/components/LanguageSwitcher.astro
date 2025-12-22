@@ -9,7 +9,7 @@ function getLocalizedPath(targetLang: string) {
   if (targetLang === 'sk') {
     return `${base}${route || '/'}`;
   }
-  return `${base}/en${route === '/' ? '' : route}`;
+  return `${base}/${targetLang}${route === '/' ? '' : route}`;
 }
 ---
 

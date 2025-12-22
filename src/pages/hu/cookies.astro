@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="Sütik | Intrastat Portál" description="Információk a sütik használatáról az Intrastat Portál weboldalán.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Sütik
+        </h1>
+        <p class="text-xl text-primary-100">
+          Információk a sütik használatáról weboldalunkon
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Ez a weboldal sütiket használ a böngészési élmény javítása érdekében. Itt megtudhatja, mik azok a sütik és hogyan használjuk őket.
+        </p>
+
+        <h2>Mik azok a sütik?</h2>
+        <p>
+          A sütik kis szöveges fájlok, amelyek az Ön eszközén (számítógép, tablet, mobiltelefon) tárolódnak, amikor weboldalakat látogat. A sütik lehetővé teszik a weboldal számára, hogy felismerje az Ön eszközét és megjegyezzen bizonyos információkat az Ön preferenciáiról.
+        </p>
+
+        <h2>Milyen sütiket használunk</h2>
+        
+        <h3>Alapvető sütik</h3>
+        <p>
+          Ezek a sütik szükségesek a weboldal alapvető működéséhez. Nélkülük a weboldal nem működne megfelelően. Ezek a sütik nem gyűjtenek Önről olyan információkat, amelyeket marketing célokra lehetne felhasználni.
+        </p>
+
+        <h3>Analitikai sütik</h3>
+        <p>
+          Analitikai sütiket használunk annak megértésére, hogyan használják a látogatók weboldalunkat. Ez az információ segít javítani a weboldal tartalmát és funkcionalitását. Minden adat anonimizált.
+        </p>
+
+        <h3>Funkcionális sütik</h3>
+        <p>
+          Ezek a sütik lehetővé teszik a weboldal számára, hogy megjegyezze az Ön választásait (például a nyelvet) és továbbfejlesztett, személyre szabott funkciókat biztosítson.
+        </p>
+
+        <h2>Sütik kezelése</h2>
+        <p>
+          A legtöbb webböngésző lehetővé teszi a sütik kezelését a beállításokon keresztül. Ön:
+        </p>
+        <ul>
+          <li>Megtekintheti, milyen sütik vannak tárolva az eszközén</li>
+          <li>Törölheti az összes vagy a kiválasztott sütiket</li>
+          <li>Blokkolhatja a harmadik féltől származó sütiket</li>
+          <li>Blokkolhatja bizonyos weboldalak sütijeit</li>
+          <li>Blokkolhatja az összes sütit</li>
+          <li>Törölheti az összes sütit a böngésző bezárásakor</li>
+        </ul>
+
+        <h2>Hogyan tilthatja le a sütiket</h2>
+        <p>
+          Ha korlátozni vagy blokkolni szeretné a sütiket, ezt a böngésző beállításaiban teheti meg:
+        </p>
+        <ul>
+          <li><strong>Chrome:</strong> Beállítások → Adatvédelem és biztonság → Sütik</li>
+          <li><strong>Firefox:</strong> Beállítások → Adatvédelem és biztonság → Sütik</li>
+          <li><strong>Safari:</strong> Beállítások → Adatvédelem → Sütik</li>
+          <li><strong>Edge:</strong> Beállítások → Sütik és webhelyengedélyek</li>
+        </ul>
+
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-6">
+          <p class="text-amber-800 mb-0">
+            <strong>Figyelmeztetés:</strong> A sütik letiltása befolyásolhatja a weboldal egyes részeinek működését.
+          </p>
+        </div>
+
+        <h2>Változások a süti szabályzatban</h2>
+        <p>
+          Fenntartjuk a jogot, hogy bármikor frissítsük ezt a süti szabályzatot. Javasoljuk, hogy rendszeresen ellenőrizze ezt az oldalt, hogy tájékozott legyen az esetleges változásokról.
+        </p>
+
+        <h2>Kapcsolat</h2>
+        <p>
+          Ha bármilyen kérdése van a sütik használatával kapcsolatban, kérjük, lépjen kapcsolatba velünk a <a href="/hu/kontakt">Kapcsolat</a> oldalon.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Utolsó frissítés: 2025. január
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose h3 {
+    @apply text-xl font-semibold text-slate-800 mt-6 mb-3;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

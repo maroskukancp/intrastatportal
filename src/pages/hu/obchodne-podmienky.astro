@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="Általános Szerződési Feltételek | Intrastat Portál" description="Az Intrastat Portál szolgáltatásainak nyújtására vonatkozó általános szerződési feltételek.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Általános Szerződési Feltételek
+        </h1>
+        <p class="text-xl text-primary-100">
+          A szolgáltatások nyújtására vonatkozó általános szerződési feltételek
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Ezek az általános szerződési feltételek szabályozzák a szolgáltató és az ügyfél közötti kapcsolatot az Intrastat jelentéskészítési szolgáltatások nyújtása során.
+        </p>
+
+        <h2>1. Általános rendelkezések</h2>
+        <p>
+          Ezek a szerződési feltételek (a továbbiakban "ÁSZF") szabályozzák a szolgáltató és az ügyfél között létrejött szolgáltatási szerződésből eredő szerződő felek jogait és kötelezettségeit.
+        </p>
+
+        <h2>2. Fogalommeghatározások</h2>
+        <ul>
+          <li><strong>Szolgáltató:</strong> az intrastatportal.sk weboldal üzemeltetője</li>
+          <li><strong>Ügyfél:</strong> természetes vagy jogi személy, aki igénybe veszi a szolgáltató szolgáltatásait</li>
+          <li><strong>Szolgáltatások:</strong> Intrastat jelentések feldolgozása, tanácsadás, képviselet és képzés</li>
+        </ul>
+
+        <h2>3. A szerződés tárgya</h2>
+        <p>
+          A szerződés tárgya a szolgáltató kötelezettsége, hogy az ügyfélnek Intrastat jelentéskészítési szolgáltatásokat és kapcsolódó szolgáltatásokat nyújtson a megállapodott terjedelemben, valamint az ügyfél kötelezettsége, hogy ezekért a szolgáltatásokért a megállapodott árat megfizesse.
+        </p>
+
+        <h2>4. Szolgáltatások megrendelése</h2>
+        <p>
+          A szolgáltatások megrendelhetők a weboldalon található kapcsolatfelvételi űrlapon, e-mailben vagy telefonon keresztül. A szerződés a megrendelés szolgáltató általi visszaigazolásával jön létre.
+        </p>
+
+        <h2>5. Ár és fizetési feltételek</h2>
+        <ul>
+          <li>A szolgáltatások árai a weboldalon található árlistában szerepelnek</li>
+          <li>Az árak ÁFA nélkül értendők, hacsak másként nincs feltüntetve</li>
+          <li>A számlák a kiállítástól számított 14 napon belül esedékesek</li>
+          <li>Késedelmes fizetés esetén a szolgáltató fenntartja a jogot késedelmi kamat felszámítására</li>
+        </ul>
+
+        <h2>6. Az ügyfél kötelezettségei</h2>
+        <p>Az ügyfél köteles:</p>
+        <ul>
+          <li>A jelentés feldolgozásához szükséges összes dokumentumot időben és megfelelő minőségben átadni</li>
+          <li>A szolgáltatónak minden, a szolgáltatások nyújtása szempontjából releváns tényről tájékoztatást adni</li>
+          <li>A nyújtott szolgáltatások árát a megállapodott határidőn belül megfizetni</li>
+          <li>Együttműködni az esetleges eltérések feloldásában</li>
+        </ul>
+
+        <h2>7. A szolgáltató kötelezettségei</h2>
+        <p>A szolgáltató köteles:</p>
+        <ul>
+          <li>A jelentéseket szakszerűen és a hatályos jogszabályoknak megfelelően feldolgozni</li>
+          <li>A megállapodott határidőket betartani</li>
+          <li>A szolgáltatások nyújtása során megismert minden tényről titoktartást tanúsítani</li>
+          <li>Az ügyfelet minden problémáról vagy eltérésről tájékoztatni</li>
+        </ul>
+
+        <h2>8. Felelősség</h2>
+        <p>
+          A szolgáltató felelős a kötelezettségei megszegésével okozott kárért. A felelősség azon szolgáltatások díjának összegére korlátozódik, amelyekben a kár keletkezett. A szolgáltató nem felel az ügyfél hibás vagy hiányos dokumentumai által okozott kárért.
+        </p>
+
+        <h2>9. A szerződés megszűnése</h2>
+        <p>
+          A szerződés a szerződő felek megállapodásával vagy egyhónapos felmondási idővel történő felmondással szűnhet meg. A kötelezettségek súlyos megszegése esetén azonnali hatályú elállásra van lehetőség.
+        </p>
+
+        <h2>10. Záró rendelkezések</h2>
+        <p>
+          Ezek az ÁSZF a weboldalon történő közzétételük napján lépnek hatályba. A szolgáltató fenntartja a jogot ezen ÁSZF egyoldalú módosítására. Az ezen ÁSZF által nem szabályozott kapcsolatokra a Kereskedelmi Törvénykönyv vonatkozó rendelkezései az irányadók.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Utolsó frissítés: 2025. január
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

@@ -1,0 +1,138 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Főoldal', url: '/hu/' },
+  { name: 'Blog', url: '/hu/blog/' },
+  { name: 'Speciális esetek az Intrastat jelentésekben', url: '/hu/blog/specialne-pripady-intrastat/' }
+];
+---
+
+<Layout 
+  title="Speciális esetek az Intrastat jelentésekben | Intrastat Portál"
+  description="Átfogó útmutató az Intrastat jelentések speciális eseteihez - árufeldolgozás, visszaküldések, cserék, megosztott szállítmányok, szoftver és távértékesítés."
+  keywords="árufeldolgozás, áru visszaküldés, árucsere, megosztott szállítmányok, szoftver intrastat, távértékesítés, árujavítás"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Speciális esetek
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-11-10">
+              2025. november 10.
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Speciális esetek az Intrastat jelentésekben
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Árufeldolgozás, visszaküldések, cserék, megosztott szállítmányok, szoftver és távértékesítés - ismerje meg, hogyan kell helyesen jelenteni ezeket a speciális eseteket.
+          </p>
+        </header>
+
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-specialne-pripady.jpg`}
+            alt="Speciális esetek az Intrastat jelentésekben"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <h2>1. Árufeldolgozás és javítások</h2>
+          
+          <h3>Mi az árufeldolgozás?</h3>
+          <p>
+            Az árufeldolgozás olyan helyzet, amikor az árukat ideiglenesen egy másik tagállamba küldik feldolgozásra, 
+            módosításra vagy javításra, majd ezt követően visszaküldik az eredeti tagállamba.
+          </p>
+
+          <h3>Hogyan kell jelenteni az árufeldolgozást?</h3>
+          <p><strong>Áruk feldolgozásra küldésekor:</strong></p>
+          <ul>
+            <li><strong>Ügylet jelleg kód:</strong> 41 (áruk feladása feldolgozásra)</li>
+            <li><strong>Statisztikai érték:</strong> Az áruk értéke feldolgozás előtt</li>
+          </ul>
+
+          <p><strong>Feldolgozott áruk fogadásakor:</strong></p>
+          <ul>
+            <li><strong>Ügylet jelleg kód:</strong> 51 (áruk beérkezése feldolgozás után)</li>
+            <li><strong>Statisztikai érték:</strong> Az áruk értéke feldolgozás után</li>
+          </ul>
+
+          <h2>2. Visszaküldések és cserék</h2>
+          
+          <h3>Áruk visszaküldése</h3>
+          <p><strong>Jelentés:</strong></p>
+          <ul>
+            <li><strong>Ügylet jelleg kód:</strong> 21 (áruk visszaküldése)</li>
+            <li><strong>Statisztikai érték:</strong> A visszaküldött áruk eredeti értéke</li>
+          </ul>
+
+          <h3>Árucsere</h3>
+          <ul>
+            <li><strong>Ügylet jelleg kód:</strong> 22 (csereáru)</li>
+            <li><strong>Statisztikai érték:</strong> A csereáruk értéke</li>
+          </ul>
+
+          <h2>3. Megosztott szállítmányok</h2>
+          <p>
+            Minden részletszállítást külön kell jelenteni abban a hónapban, amikor megtörtént.
+          </p>
+
+          <h2>4. Szoftver és digitális termékek</h2>
+          <p>
+            Fizikai adathordozón lévő szoftvert jelenteni kell. Elektronikusan szállított szoftvert nem jelentenek.
+          </p>
+
+          <h2>5. Áruk távértékesítése</h2>
+          <p>
+            Az áruk távértékesítését standard árufeladásként jelentik 11-es ügylet kóddal.
+          </p>
+
+          <h2>Gyakorlati tippek</h2>
+          <ol>
+            <li><strong>Rögzítsen minden mozgást</strong> - Még azokat is, amelyek kivételesnek tűnnek</li>
+            <li><strong>Használjon helyes kódokat</strong> - Minden speciális esetnek megvan a saját ügylet kódja</li>
+            <li><strong>Dokumentálja az okokat</strong> - Őrizze meg a visszaküldések, cserék vagy javítások dokumentációját</li>
+            <li><strong>Konzultáljon bizonytalanság esetén</strong> - Kétség esetén forduljon szakértőkhöz</li>
+          </ol>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Közzétéve: 2025. november 10.</span>
+            <span>Olvasási idő: 10 perc</span>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Segítségre van szüksége a speciális esetekkel?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            A speciális esetek jelentése kihívást jelenthet. Szakértőink segítenek helyesen azonosítani és jelenteni őket.
+          </p>
+          <a href="/hu/kontakt/" class="btn-primary">
+            Kapcsolatfelvétel
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

@@ -1,0 +1,119 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="Mi az Intrastat és mikor keletkezik a kötelezettség? | Intrastat Portál" description="Átfogó útmutató az Intrastat rendszerről szlovák cégek számára. Tudja meg, mikor köteles jelentéseket benyújtani.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Alapok
+            </span>
+            <span class="text-sm text-primary-200">5 perc olvasás</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Mi az Intrastat és mikor keletkezik a kötelezettség?
+          </h1>
+          <p class="text-xl text-primary-100">
+            Átfogó útmutató az Intrastat rendszerről szlovák cégek számára.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">2025. január 15.</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>Mi az Intrastat?</h2>
+          <p>
+            Az <strong>Intrastat</strong> egy statisztikai rendszer az EU tagállamok közötti árukereskedelemre vonatkozó adatok gyűjtésére, feldolgozására és szolgáltatására. Ez a rendszer 1993. január 1-je óta működik, amikor felváltotta a vámnyilatkozatokat mint az EU-n belüli kereskedelmi statisztikák forrását.
+          </p>
+          <p>
+            Szlovákiában ez statisztikai felméréseket jelent az áruk <strong>beérkezéséről</strong> (import az EU-ból) és <strong>feladásáról</strong> (export az EU-ba) a Szlovák Köztársaság és más tagállamok között.
+          </p>
+
+          <h2>Mikor keletkezik az Intrastat jelentések benyújtásának kötelezettsége?</h2>
+          <p>
+            Az Intrastat jelentések benyújtásának kötelezettsége akkor keletkezik, amikor az EU-n belüli árukereskedelmének értéke meghaladja a megállapított <strong>mentességi küszöböt</strong> (asszimilációs küszöb).
+          </p>
+          
+          <div class="bg-primary-50 border-l-4 border-primary-500 p-4 my-6">
+            <p class="font-semibold text-primary-900 mb-2">Mentességi küszöbök 2025-re:</p>
+            <ul class="text-primary-800 mb-0">
+              <li><strong>Beérkezések (import az EU-ból):</strong> 1 000 000 EUR</li>
+              <li><strong>Feladások (export az EU-ba):</strong> 1 000 000 EUR</li>
+            </ul>
+          </div>
+
+          <p>
+            Fontos, hogy ezeket a küszöböket <strong>kumulatívan a naptári év elejétől</strong> és <strong>külön-külön minden irányra</strong> (beérkezések és feladások) figyelik. Ez azt jelenti, hogy csak egy irányra, vagy mindkettőre lehet kötelezettsége.
+          </p>
+
+          <h2>Kinek kell jelentéseket benyújtania?</h2>
+          <p>
+            Jelentési egység minden Szlovákiában ÁFA-regisztrált személy, aki:
+          </p>
+          <ul>
+            <li>Árukat vásárol más EU tagállamokból</li>
+            <li>Árukat ad el más EU tagállamokba</li>
+            <li>Túllépte a mentességi küszöböt az adott irányban</li>
+          </ul>
+
+          <h2>Milyen adatokat kell jelenteni?</h2>
+          <p>
+            Az Intrastat jelentésben a következő adatokat kell jelenteni:
+          </p>
+          <ul>
+            <li><strong>Áru kód</strong> a kombinált nómenklatúra szerint (8 számjegyű kód)</li>
+            <li><strong>Származási/rendeltetési ország</strong></li>
+            <li><strong>Áruk értéke</strong> EUR-ban</li>
+            <li><strong>Súly</strong> kg-ban</li>
+            <li><strong>Kiegészítő mértékegység</strong> (ha előírt)</li>
+            <li><strong>Ügylet jellege</strong></li>
+            <li><strong>Szállítási feltételek</strong></li>
+            <li><strong>Szállítási mód</strong></li>
+          </ul>
+
+          <h2>Határidők és bírságok</h2>
+          <p>
+            A jelentést a jelentési hónap végét követő <strong>15. naptári napig</strong> kell benyújtani, elektronikusan a pénzügyi igazgatóság portálján keresztül.
+          </p>
+          <p>
+            A jelentés be nem nyújtásáért a Szlovák Köztársaság Statisztikai Hivatala minden be nem nyújtott jelentésért <strong>akár 3 320 EUR</strong> bírságot szabhat ki. A bírság megfizetése nem mentesít a jelentés benyújtásának kötelezettsége alól.
+          </p>
+
+          <h2>Segítségre van szüksége az Intrastat jelentésekkel?</h2>
+          <p>
+            Az Intrastat jelentések feldolgozása időigényes lehet és a vámtarifa ismeretét igényli. Ha nem akar hibákat és bírságokat kockáztatni, <a href="/hu/kontakt">lépjen kapcsolatba velünk</a> - szívesen segítünk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

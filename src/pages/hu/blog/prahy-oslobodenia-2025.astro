@@ -1,0 +1,114 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="Mentességi küszöbök 2025-re | Intrastat Portál" description="Aktuális mentességi küszöbök az Intrastat jelentésekhez 2025-ben. Mi változott és hogyan érinti az Ön cégét.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Jogszabályok
+            </span>
+            <span class="text-sm text-primary-200">3 perc olvasás</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Mentességi küszöbök 2025-re
+          </h1>
+          <p class="text-xl text-primary-100">
+            Aktuális mentességi küszöbök és mit jelentenek az Ön cége számára.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">2025. január 10.</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <h2>Mentességi küszöbök 2025-re</h2>
+          <p>
+            2025. január 1-jétől a következő mentességi küszöbök érvényesek Szlovákiában az Intrastat jelentésekre:
+          </p>
+          
+          <div class="bg-slate-50 rounded-xl p-6 my-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">€1 000 000</div>
+                <div class="text-slate-600">Beérkezések (import az EU-ból)</div>
+              </div>
+              <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                <div class="text-3xl font-bold text-primary-600 mb-2">€1 000 000</div>
+                <div class="text-slate-600">Feladások (export az EU-ba)</div>
+              </div>
+            </div>
+          </div>
+
+          <h2>Mit jelent ez a gyakorlatban?</h2>
+          <p>
+            Ha az Ön cége 2025 folyamán <strong>kumulatívan</strong> meghaladja az 1 000 000 EUR értéket az EU-n belüli áruk beérkezésében vagy feladásában, köteles Intrastat jelentéseket benyújtani.
+          </p>
+          
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-6">
+            <p class="font-semibold text-amber-900 mb-2">Fontos figyelmeztetés:</p>
+            <p class="text-amber-800 mb-0">
+              A kötelezettség <strong>az év bármely időpontjában</strong> keletkezhet. Ezért szükséges folyamatosan figyelemmel kísérni a kereskedelmei kumulatív értékét az év elejétől.
+            </p>
+          </div>
+
+          <h2>Hogyan kövessük nyomon a kumulatív értéket?</h2>
+          <p>
+            Javasoljuk az áruk értékének folyamatos nyilvántartását:
+          </p>
+          <ul>
+            <li>Külön a beérkezésekre (vásárlások az EU-ból)</li>
+            <li>Külön a feladásokra (eladások az EU-ba)</li>
+            <li>Kumulatívan az adott év január 1-jétől</li>
+          </ul>
+
+          <h2>Példa</h2>
+          <p>
+            ABC Kft. árukat vásárol Németországból. Januárban 300 000 €-ért, februárban 400 000 €-ért, márciusban 350 000 €-ért vásároltak.
+          </p>
+          <ul>
+            <li>Január: 300 000 € (kumulatív: 300 000 €) - nincs kötelezettség</li>
+            <li>Február: 400 000 € (kumulatív: 700 000 €) - nincs kötelezettség</li>
+            <li>Március: 350 000 € (kumulatív: 1 050 000 €) - <strong>kötelezettség keletkezik</strong></li>
+          </ul>
+          <p>
+            Márciustól az ABC Kft.-nek havi Intrastat jelentéseket kell benyújtania a beérkezésekről.
+          </p>
+
+          <h2>Segítségre van szüksége?</h2>
+          <p>
+            Ha nem biztos benne, hogy van-e kötelezettsége, vagy segítségre van szüksége a jelentések feldolgozásában, <a href="/hu/kontakt">lépjen kapcsolatba velünk</a>. Szívesen tanácsot adunk.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

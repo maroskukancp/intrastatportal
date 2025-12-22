@@ -1,0 +1,176 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Főoldal', url: '/hu/' },
+  { name: 'Blog', url: '/hu/blog/' },
+  { name: 'Háromszögügylet és közvetett import/export', url: '/hu/blog/trojstranný-obchod/' }
+];
+---
+
+<Layout 
+  title="Háromszögügylet és közvetett import/export az Intrastatban | Intrastat Portál"
+  description="Átfogó útmutató a háromszögügyletekről és a közvetett import/exportról. Ismerje meg, hogyan kell helyesen jelenteni az összetett üzleti műveleteket."
+  keywords="háromszögügylet, közvetett import, közvetett export, intrastat háromszögügylet, ÁFA mentesség"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Haladó témák
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-09-15">
+              2025. szeptember 15.
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Háromszögügylet és közvetett import/export az Intrastat jelentésekben
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            A háromszögügyletek és a közvetett árumozgások az Intrastat jelentéskészítés legösszetettebb esetei közé tartoznak. Ismerje meg, hogyan azonosítsa és jelentse őket helyesen.
+          </p>
+        </header>
+
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-trojstranný-obchod.jpg`}
+            alt="Háromszögügylet és közvetett import/export"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <h2>Mi a háromszögügylet?</h2>
+          <p>
+            A háromszögügylet olyan üzleti művelet, ahol az áruk fizikailag három EU tagállam között mozognak, 
+            és három különböző entitás vesz részt a kereskedelemben. Jellemzően olyan helyzet, ahol:
+          </p>
+          <ul>
+            <li>A entitás (1. tagállamból) árukat ad el B entitásnak (2. tagállamból)</li>
+            <li>B entitás ugyanazokat az árukat eladja C entitásnak (3. tagállamból)</li>
+            <li>Az áruk fizikailag közvetlenül az 1. tagállamból a 3. tagállamba mozognak</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Példa háromszögügyletre:</p>
+            <ol class="text-slate-700 space-y-2">
+              <li><strong>1.</strong> Német gyártó (DE) árukat ad el szlovák kereskedőnek (SK)</li>
+              <li><strong>2.</strong> Szlovák kereskedő (SK) ugyanazokat az árukat eladja cseh vevőnek (CZ)</li>
+              <li><strong>3.</strong> Az áruk fizikailag közvetlenül Németországból (DE) Csehországba (CZ) mozognak</li>
+              <li><strong>4.</strong> Az áruk soha nem lépnek be fizikailag szlovák területre</li>
+            </ol>
+          </div>
+
+          <h2>Háromszögügylet jelentése</h2>
+          
+          <h3>A közvetítő kereskedő számára (SK a példánkban)</h3>
+          <p>
+            A szlovák kereskedőnek speciális jelentési rendszere van:
+          </p>
+          <ul>
+            <li><strong>Intrastat beérkezés:</strong> Jelenti az áruk beérkezését Németországból (még ha az áruk fizikailag nem is mentek át SK-n)</li>
+            <li><strong>Intrastat feladás:</strong> Jelenti az áruk feladását Csehországba</li>
+            <li><strong>ÁFA:</strong> Használhatja az egyszerűsített mentességi rendszert az ÁFA törvény 43. § szerint</li>
+          </ul>
+
+          <h2>Közvetett import és export</h2>
+          
+          <h3>Mi a közvetett import?</h3>
+          <p>
+            Közvetett import akkor történik, amikor egy szlovák cég árukat vásárol egy másik EU tagállambeli szállítótól, 
+            de az árukat közvetlenül a végső vevőnek szállítják egy harmadik tagállamba, anélkül, hogy fizikailag belépnének szlovák területre.
+          </p>
+
+          <h2>ÁFA mentesség másik tagállamba történő szállításnál</h2>
+          <p>
+            Másik tagállamba történő áruszállításnál az ÁFA törvény 43. § szerinti ÁFA mentesség alkalmazható. 
+            A mentesség feltételei:
+          </p>
+          <ul>
+            <li>Az árukat egy másik tagállamba küldik vagy szállítják</li>
+            <li>A szállító vagy a beszerző intézi a szállítást</li>
+            <li>A beszerző ÁFA-regisztrált egy másik tagállamban</li>
+            <li>A szállítónak van bizonyítéka az áruszállításról (CMR, számla stb.)</li>
+          </ul>
+
+          <h2>Szükséges dokumentáció háromszögügylethez</h2>
+          <p>A helyes jelentéshez és az adókedvezmények alkalmazásához meg kell őrizni:</p>
+          <ul>
+            <li><strong>Számlákat</strong> - Minden részt vevő féltől</li>
+            <li><strong>Szállítási dokumentumokat</strong> - CMR, fuvarlevél, átvételi igazolás</li>
+            <li><strong>Megrendeléseket</strong> - Az üzleti kapcsolatokat dokumentálva</li>
+            <li><strong>ÁFA azonosító megerősítést</strong> - A beszerző ÁFA azonosítójának érvényességének ellenőrzése VIES-en keresztül</li>
+          </ul>
+
+          <h2>Gyakori hibák a háromszögügylet jelentésében</h2>
+          
+          <h3>1. Árumozgás nem jelentése</h3>
+          <p>
+            <strong>Hiba:</strong> A közvetítő kereskedő úgy gondolja, hogy ha az áruk fizikailag nem mentek át a raktárán, 
+            nem kell semmilyen mozgást jelentenie az Intrastatban.
+          </p>
+          <p>
+            <strong>Megoldás:</strong> Háromszögügyletnél is szükséges mind a beérkezést, mind a feladást jelenteni az Intrastat jelentésekben.
+          </p>
+
+          <h3>2. Hibás ügylet jelleg kód</h3>
+          <p>
+            <strong>Hiba:</strong> Standard ügylet kód használata a háromszögügylet speciális kódja helyett.
+          </p>
+          <p>
+            <strong>Megoldás:</strong> Háromszögügyletnél használja a 21-es (vásárlás) vagy 29-es (eladás) kódokat.
+          </p>
+
+          <h2>Gyakorlati tippek háromszögügylethez</h2>
+          <ol>
+            <li><strong>Dokumentáljon mindent</strong> - Őrizze meg az összes dokumentumot legalább 10 évig</li>
+            <li><strong>Ellenőrizze az ÁFA azonosítókat</strong> - Mindig ellenőrizze az ÁFA azonosító érvényességét VIES-en keresztül az ügylet előtt</li>
+            <li><strong>Kommunikáljon világosan</strong> - Győződjön meg róla, hogy minden fél érti a kötelezettségeit</li>
+            <li><strong>Kövesse nyomon a fizikai mozgást</strong> - Dokumentálja az áruk tényleges útvonalát</li>
+            <li><strong>Konzultáljon szakértőkkel</strong> - Összetett esetekben forduljon adótanácsadókhoz</li>
+          </ol>
+
+          <h2>Hasznos források</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/vies/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">VIES - ÁFA azonosító ellenőrzés</a></li>
+            <li><a href="https://www.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Szlovák Köztársaság Pénzügyi Igazgatósága</a></li>
+            <li><a href="https://intrastat.statistics.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Statisztikai Hivatal SK - Intrastat</a></li>
+          </ul>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Közzétéve: 2025. szeptember 15.</span>
+            <span>Olvasási idő: 9 perc</span>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Segítségre van szüksége a háromszögügyletekkel?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            A háromszögügyletek összetettek lehetnek. Szakértőink segítenek helyesen jelenteni ezeket a műveleteket és elkerülni a hibákat.
+          </p>
+          <a href="/hu/kontakt/" class="btn-primary">
+            Kapcsolatfelvétel
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

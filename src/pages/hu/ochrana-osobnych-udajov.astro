@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/translations';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="Adatvédelmi Irányelvek | Intrastat Portál" description="Információk a személyes adatok feldolgozásáról és védelméről az Intrastat Portál weboldalán.">
+  <section class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Adatvédelmi Irányelvek
+        </h1>
+        <p class="text-xl text-primary-100">
+          Információk a személyes adatai feldolgozásáról
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+        <p class="lead">
+          Személyes adatainak védelme prioritásunk. Ez a dokumentum elmagyarázza, hogyan gyűjtjük, használjuk és védjük személyes adatait.
+        </p>
+
+        <h2>1. Adatkezelő</h2>
+        <p>
+          Az adatkezelő az intrastatportal.sk weboldalt üzemeltető vállalkozás (a továbbiakban: "Adatkezelő").
+        </p>
+
+        <h2>2. Milyen adatokat gyűjtünk</h2>
+        <p>A következő kategóriájú személyes adatokat gyűjtjük:</p>
+        <ul>
+          <li><strong>Kapcsolattartási adatok:</strong> név, e-mail cím, telefonszám</li>
+          <li><strong>Cégadatok:</strong> cégnév, cégjegyzékszám, adószám</li>
+          <li><strong>Technikai adatok:</strong> IP-cím, böngésző típusa, sütik</li>
+        </ul>
+
+        <h2>3. Az adatkezelés célja</h2>
+        <p>Személyes adatait a következő célokra dolgozzuk fel:</p>
+        <ul>
+          <li>Intrastat jelentéskészítési szolgáltatások nyújtása</li>
+          <li>Kommunikáció Önnel szolgáltatásainkkal kapcsolatban</li>
+          <li>Kereskedelmi kommunikáció küldése (csak az Ön hozzájárulásával)</li>
+          <li>Szolgáltatásaink és weboldalunk fejlesztése</li>
+        </ul>
+
+        <h2>4. Az adatkezelés jogalapja</h2>
+        <p>Személyes adatokat a következők alapján kezelünk:</p>
+        <ul>
+          <li>Szerződés teljesítése vagy szerződéskötést megelőző kapcsolatok</li>
+          <li>Az adatkezelő jogos érdeke</li>
+          <li>Az Ön hozzájárulása (marketing célokra)</li>
+          <li>Jogi kötelezettségek teljesítése</li>
+        </ul>
+
+        <h2>5. Megőrzési időszak</h2>
+        <p>
+          A személyes adatokat az adatkezelés céljának teljesítéséhez szükséges ideig őrizzük meg, de legfeljebb:
+        </p>
+        <ul>
+          <li>Szerződéses adatok: 10 év a szerződéses kapcsolat megszűnésétől</li>
+          <li>Számviteli dokumentumok: 10 év</li>
+          <li>Marketing hozzájárulások: a hozzájárulás visszavonásáig</li>
+        </ul>
+
+        <h2>6. Az Ön jogai</h2>
+        <p>Önnek joga van:</p>
+        <ul>
+          <li>Hozzáférni személyes adataihoz</li>
+          <li>Pontatlan adatok helyesbítését kérni</li>
+          <li>Adatok törlését kérni ("elfeledtetéshez való jog")</li>
+          <li>Az adatkezelés korlátozását kérni</li>
+          <li>Adathordozhatósághoz</li>
+          <li>Tiltakozni az adatkezelés ellen</li>
+          <li>Visszavonni az adatkezeléshez adott hozzájárulását</li>
+        </ul>
+
+        <h2>7. Adatbiztonság</h2>
+        <p>
+          Megfelelő technikai és szervezési intézkedéseket vezettünk be személyes adatainak védelme érdekében az illetéktelen hozzáférés, módosítás, nyilvánosságra hozatal vagy megsemmisítés ellen.
+        </p>
+
+        <h2>8. Kapcsolat</h2>
+        <p>
+          Ha bármilyen kérdése van a személyes adatok védelmével kapcsolatban, a <a href="/hu/kontakt">Kapcsolat</a> oldalon megadott e-mail címen léphet kapcsolatba velünk.
+        </p>
+
+        <p class="text-sm text-slate-500 mt-8">
+          Utolsó frissítés: 2025. január
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>

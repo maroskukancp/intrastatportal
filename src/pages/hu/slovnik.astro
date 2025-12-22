@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const terms = [
+  {
+    term: "Kombinált Nómenklatúra (KN)",
+    definition: "Az áruk szisztematikus megjelölése számkóddal. Az Intrastat jelentésekben az áruk besorolására használják."
+  },
+  {
+    term: "Szállítási feltételek",
+    definition: "Szállítási feltételek az Incoterms szerint (pl. EXW, FOB, CIF). Meghatározza, ki viseli a költségeket és kockázatokat a szállítás során."
+  },
+  {
+    term: "Behozatal (Beérkezés)",
+    definition: "Áruk, amelyek egy másik EU tagállamból Szlovákia területére érkeztek."
+  },
+  {
+    term: "Szlovák Köztársaság Pénzügyi Igazgatósága",
+    definition: "A hatóság, amelyhez az Intrastat jelentéseket ÁFA célokra benyújtják."
+  },
+  {
+    term: "Nettó súly",
+    definition: "Az áruk súlya csomagolás és szállítóeszközök nélkül. Kilogrammban adják meg."
+  },
+  {
+    term: "Intrastat",
+    definition: "Rendszer az Európai Unió tagállamai közötti árukereskedelemre vonatkozó adatok gyűjtésére."
+  },
+  {
+    term: "Áru kód",
+    definition: "8 számjegyű numerikus kód a Kombinált Nómenklatúrából, amely pontosan azonosítja az áru típusát."
+  },
+  {
+    term: "Származási ország",
+    definition: "Az az állam, amelyben az árut gyártották vagy lényegesen átalakították."
+  },
+  {
+    term: "Rendeltetési ország",
+    definition: "Az EU tagállam, ahová az árukat végső fogyasztásra vagy további feldolgozásra feladják."
+  },
+  {
+    term: "EU tagállam",
+    definition: "Az Európai Unió tagországa. Az Intrastat ezek között az államok közötti kereskedelmet követi nyomon."
+  },
+  {
+    term: "Ügylet jellege",
+    definition: "Kód, amely jelzi az ügylet jellegét (pl. vétel/eladás, áru visszaküldése, ingyenes szállítás)."
+  },
+  {
+    term: "Feladás (Kivitel)",
+    definition: "Áruk, amelyek elhagyták Szlovákia területét és egy másik EU tagállamba kerültek feladásra."
+  },
+  {
+    term: "Mentességi küszöb",
+    definition: "A kereskedelem EUR-ban kifejezett értéke, amelynél az Intrastat jelentések benyújtási kötelezettsége keletkezik. 2025-re ez 1 000 000 EUR."
+  },
+  {
+    term: "Statisztikai érték",
+    definition: "Az áruk EUR-ban kifejezett értéke, a szállítási feltételek szerint a szlovák határra átszámítva."
+  },
+  {
+    term: "Szlovák Köztársaság Statisztikai Hivatala",
+    definition: "Az Intrastat adatok statisztikai célú gyűjtéséért és feldolgozásáért felelős hatóság."
+  },
+  {
+    term: "Benyújtási határidő",
+    definition: "A jelentést a jelentési hónap végét követő 15. naptári napig kell benyújtani."
+  },
+  {
+    term: "Áruk",
+    definition: "Tárgyi javak, amelyek az EU tagállamok közötti kereskedelem tárgyát képezik."
+  },
+  {
+    term: "Ügylet értéke",
+    definition: "Az áruk számlázott értéke EUR-ban, ÁFA nélkül."
+  },
+  {
+    term: "Saját súly",
+    definition: "Az áruk súlya minden csomagolással együtt, kivéve a szállítótartályokat."
+  },
+  {
+    term: "Mentességek a kötelezettség alól",
+    definition: "Bizonyos típusú áruk és ügyletek mentesülnek a jelentési kötelezettség alól (pl. valuta, értékpapírok)."
+  },
+  {
+    term: "Egyszerűsített jelentés",
+    definition: "Korlátozott adattartalmú jelentés alacsonyabb kereskedelmi volumenű cégek számára."
+  },
+  {
+    term: "Kiegészítő mértékegység",
+    definition: "További mértékegység, amely bizonyos típusú áruknál szükséges (pl. darab, pár, liter)."
+  },
+  {
+    term: "Vámeljárás",
+    definition: "A vámeljárás, amelyben az áruk találhatók (pl. szabad forgalom, ideiglenes behozatal)."
+  },
+  {
+    term: "Bírságok",
+    definition: "Az Intrastat jelentések be nem nyújtásáért vagy hibás benyújtásáért kiszabott bírságok akár 3 320 EUR-t is elérhetnek."
+  }
+];
+---
+
+<Layout 
+  title="Fogalomtár - Intrastat Portál"
+  description="Átfogó Intrastat fogalomtár és terminológia. A kulcsfontosságú fogalmak magyarázata az Intrastat jelentéskészítéssel és az EU-n belüli kereskedelemmel kapcsolatban."
+  keywords="intrastat fogalomtár, intrastat kifejezések, kombinált nómenklatúra, mentességi küszöb, intrastat terminológia"
+>
+  <section class="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-white">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          Fogalomtár
+        </h1>
+        <p class="text-xl text-slate-600">
+          Átfogó áttekintés az Intrastat jelentéskészítéssel kapcsolatos legfontosabb kifejezésekről és fogalmakról.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-primary-50 border-l-4 border-primary-600 p-6 mb-12 rounded-r-lg">
+          <p class="text-slate-700">
+            <strong>Tipp:</strong> Ez a fogalomtár segít jobban megérteni az Intrastat jelentésekben használt terminológiát. 
+            Ha kérdése van vagy segítségre van szüksége a jelentéskészítésben, <a href="/hu/kontakt/" class="text-primary-600 hover:text-primary-700 underline">lépjen kapcsolatba velünk</a>.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {terms.map((item) => (
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition-shadow">
+              <h3 class="text-xl font-bold text-slate-900 mb-3">
+                {item.term}
+              </h3>
+              <p class="text-slate-600 leading-relaxed">
+                {item.definition}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-16 bg-slate-50 rounded-xl p-8 text-center">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">
+            Segítségre van szüksége az Intrastat jelentéskészítésben?
+          </h2>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Szakértőink szívesen segítenek az áruk besorolásában, a jelentés kitöltésében vagy bármely kifejezés magyarázatában.
+          </p>
+          <a 
+            href="/hu/kontakt/" 
+            class="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors"
+          >
+            Kapcsolatfelvétel
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,6 +1,7 @@
 export const languages = {
   sk: 'Slovensky',
   en: 'English',
+  hu: 'Magyar',
 };
 
 export const defaultLang = 'sk';
@@ -250,6 +251,128 @@ export const translations = {
     'cta.subtitle': 'Contact us today and get a non-binding quote.',
     'cta.button': 'Contact us',
   },
+  hu: {
+    // Navigation
+    'nav.home': 'Főoldal',
+    'nav.services': 'Szolgáltatások',
+    'nav.about': 'Rólunk',
+    'nav.howItWorks': 'Hogyan működik',
+    'nav.pricing': 'Árak',
+    'nav.faq': 'GYIK',
+    'nav.glossary': 'Szótár',
+    'nav.blog': 'Blog',
+    'nav.contact': 'Kapcsolat',
+    
+    // Hero
+    'hero.title': 'Intrastat jelentések gondok nélkül',
+    'hero.subtitle': 'Professzionális Intrastat jelentéskészítés szlovák cégek számára. Időt takarítunk meg és megvédjük Önt a bírságoktól.',
+    'hero.cta': 'Árajánlat kérése',
+    'hero.secondary': 'Tudjon meg többet',
+    
+    // Features
+    'features.title': 'Miért válasszon minket?',
+    'features.experience.title': 'Többéves tapasztalat',
+    'features.experience.desc': 'Az Intrastat jelentésekre specializálódtunk és ismerjük a rendszer minden buktatóját.',
+    'features.time.title': 'Időt takarítunk meg',
+    'features.time.desc': 'Ön az üzletre koncentrál, mi gondoskodunk a jelentésekről.',
+    'features.accuracy.title': 'Pontosság és megbízhatóság',
+    'features.accuracy.desc': 'Garantáljuk a jelentések helyességét és minden határidő betartását.',
+    'features.support.title': 'Személyes megközelítés',
+    'features.support.desc': 'Minden ügyfélnek dedikált kapcsolattartója van a gyors kommunikációhoz.',
+    
+    // Services
+    'services.title': 'Szolgáltatásaink',
+    'services.subtitle': 'Átfogó megoldások az Intrastat kötelezettségeihez',
+    'services.processing.title': 'Jelentések feldolgozása',
+    'services.processing.desc': 'Havi Intrastat jelentések teljes körű feldolgozása az Ön dokumentumai alapján.',
+    'services.consulting.title': 'Tanácsadás',
+    'services.consulting.desc': 'Konzultáció a kötelezettség keletkezéséről, az áruk helyes besorolásáról és a folyamatok optimalizálásáról.',
+    'services.representation.title': 'Képviselet',
+    'services.representation.desc': 'Kommunikáció a vámhatóságokkal és a statisztikai hivatallal az Ön nevében.',
+    'services.training.title': 'Képzés',
+    'services.training.desc': 'Képzés alkalmazottai számára az Intrastat témakörében.',
+    
+    // About
+    'about.title': 'Rólunk',
+    'about.subtitle': 'Megbízható partnerük az Intrastat ügyekben',
+    'about.text1': 'Vám- és statisztikai ügyekre specializálódott szakértői csapat vagyunk. Évek óta segítjük ügyfeleinket az Intrastat jelentésekkel.',
+    'about.text2': 'Célunk, hogy tehermentesítsük a cégeket az Intrastat kötelezettségekkel járó adminisztratív terhektől, és biztosítsuk, hogy minden jelentés helyesen és időben kerüljön benyújtásra.',
+    'about.stats.clients': 'Elégedett ügyfél',
+    'about.stats.reports': 'Feldolgozott jelentés',
+    'about.stats.years': 'Év tapasztalat',
+    
+    // How it works
+    'howItWorks.title': 'Hogyan működik',
+    'howItWorks.subtitle': 'Egyszerű folyamat 4 lépésben',
+    'howItWorks.step1.title': 'Lépjen kapcsolatba velünk',
+    'howItWorks.step1.desc': 'Töltse ki a kapcsolatfelvételi űrlapot vagy hívjon minket. Szívesen válaszolunk kérdéseire.',
+    'howItWorks.step2.title': 'Igényfelmérés',
+    'howItWorks.step2.desc': 'Elemezzük igényeit és személyre szabott árajánlatot készítünk.',
+    'howItWorks.step3.title': 'Dokumentumok átadása',
+    'howItWorks.step3.desc': 'Havonta elküldi nekünk a számlákat vagy a könyvelési rendszeréből származó kimutatásokat.',
+    'howItWorks.step4.title': 'Feldolgozás és benyújtás',
+    'howItWorks.step4.desc': 'Feldolgozzuk a jelentést és benyújtjuk a pénzügyi hatóságnak. Ön visszaigazolást kap.',
+    
+    // Pricing
+    'pricing.title': 'Árak',
+    'pricing.subtitle': 'Átlátható árak az Ön igényeihez igazítva',
+    'pricing.text': 'Az Intrastat jelentések feldolgozásának ára a mennyiségtől és a bonyolultságtól függ. Kérjen tőlünk kötelezettségmentes árajánlatot.',
+    'pricing.includes': 'Mit tartalmaz:',
+    'pricing.item1': 'Teljes körű jelentésfeldolgozás',
+    'pricing.item2': 'Adatok pontosságának ellenőrzése',
+    'pricing.item3': 'Elektronikus benyújtás a pénzügyi hatóságnak',
+    'pricing.item4': 'Dokumentumok archiválása',
+    'pricing.item5': 'Tanácsadás kérdések esetén',
+    'pricing.cta': 'Árajánlat kérése',
+    
+    // FAQ
+    'faq.title': 'Gyakran ismételt kérdések',
+    'faq.q1': 'Mi az Intrastat?',
+    'faq.a1': 'Az Intrastat egy statisztikai rendszer az EU tagállamok közötti árukereskedelemre vonatkozó adatok gyűjtésére. Az áruk beérkezéséről és feladásáról gyűjt adatokat.',
+    'faq.q2': 'Mikor keletkezik Intrastat jelentési kötelezettség?',
+    'faq.a2': 'A kötelezettség akkor keletkezik, amikor az EU-n belüli árubehozatal vagy -kivitel értéke meghaladja a mentességi küszöböt. 2025-re ez mindkét irányban 1 000 000 EUR.',
+    'faq.q3': 'Mik a jelentések benyújtásának határidői?',
+    'faq.a3': 'A jelentést a jelentési hónap végét követő 15. naptári napig kell benyújtani.',
+    'faq.q4': 'Milyen szankciók járnak a jelentés elmulasztásáért?',
+    'faq.a4': 'A Szlovák Köztársaság Statisztikai Hivatala minden be nem nyújtott jelentésért akár 3 320 EUR bírságot is kiszabhat.',
+    'faq.q5': 'Milyen dokumentumokra van szükségük a feldolgozáshoz?',
+    'faq.a5': 'Az EU-n belüli áruvásárlás/-eladás számláira vagy a könyvelési rendszeréből származó, szükséges adatokat tartalmazó kimutatásra van szükségünk.',
+    
+    // Blog
+    'blog.title': 'Blog',
+    'blog.subtitle': 'Hírek és hasznos információk az Intrastat világából',
+    'blog.readMore': 'Tovább olvasom',
+    
+    // Contact
+    'contact.title': 'Kapcsolat',
+    'contact.subtitle': 'Kérdése van? Írjon nekünk!',
+    'contact.form.name': 'Teljes név',
+    'contact.form.email': 'E-mail',
+    'contact.form.phone': 'Telefon',
+    'contact.form.company': 'Cégnév',
+    'contact.form.message': 'Üzenet',
+    'contact.form.submit': 'Üzenet küldése',
+    'contact.form.success': 'Köszönjük! Üzenetét elküldtük.',
+    'contact.info.title': 'Elérhetőségek',
+    'contact.info.email': 'E-mail',
+    'contact.info.phone': 'Telefon',
+    'contact.info.hours': 'Munkaidő',
+    'contact.info.hoursValue': 'H - P: 8:00 - 17:00',
+    
+    // Footer
+    'footer.description': 'Professzionális Intrastat jelentéskészítés szlovák cégek számára.',
+    'footer.links': 'Gyors linkek',
+    'footer.legal': 'Jogi információk',
+    'footer.privacy': 'Adatvédelmi irányelvek',
+    'footer.terms': 'Szolgáltatási feltételek',
+    'footer.cookies': 'Sütik',
+    'footer.copyright': '© 2025 Intrastat Portál. Minden jog fenntartva.',
+    
+    // CTA
+    'cta.title': 'Készen áll a kezdésre?',
+    'cta.subtitle': 'Lépjen kapcsolatba velünk még ma és kérjen kötelezettségmentes árajánlatot.',
+    'cta.button': 'Kapcsolatfelvétel',
+  },
 } as const;
 
 export function getLangFromUrl(url: URL) {
@@ -268,7 +391,7 @@ export function getRouteFromUrl(url: URL): string {
   const pathname = url.pathname;
   const parts = pathname.split('/').filter(Boolean);
   
-  if (parts[0] === 'en') {
+  if (parts[0] === 'en' || parts[0] === 'hu') {
     return '/' + parts.slice(1).join('/');
   }
   return pathname;

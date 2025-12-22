@@ -1,0 +1,224 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Főoldal', url: '/hu/' },
+  { name: 'Blog', url: '/hu/blog/' },
+  { name: 'Vámtarifa és árubesorolás', url: '/hu/blog/colny-sadzobnik-zatriedenie/' }
+];
+---
+
+<Layout 
+  title="Vámtarifa és árubesorolás az Intrastat jelentésekben | Intrastat Portál"
+  description="Átfogó útmutató a vámtarifához és a helyes árubesoroláshoz. Ismerje meg, hogyan rendelje hozzá a helyes KN kódot és kerülje el a gyakori hibákat."
+  keywords="vámtarifa, kombinált nómenklatúra, KN kód, árubesorolás, áruk besorolása, intrastat kódok"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Gyakorlati útmutató
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-07-20">
+              2025. július 20.
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Vámtarifa és árubesorolás az Intrastat jelentésekben
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            A helyes árubesorolás kulcsfontosságú a pontos Intrastat jelentéskészítéshez. Ismerje meg, hogyan dolgozzon a vámtarifával és kerülje el a gyakori besorolási hibákat.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-colny-sadzobnik.jpg`}
+            alt="Vámtarifa és árubesorolás"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>Mi a Vámtarifa (Kombinált Nómenklatúra)?</h2>
+          <p>
+            A Vámtarifa, hivatalos nevén Kombinált Nómenklatúra (KN), a nemzetközi kereskedelem tárgyát képező 
+            összes árutípus szisztematikus listája. Minden árutípushoz egyedi 8 számjegyű numerikus kód tartozik, 
+            amely pontosan azonosítja annak jellegét és jellemzőit.
+          </p>
+
+          <h3>A KN kód szerkezete</h3>
+          <p>A KN kód 8 számjegyből áll hierarchikus szerkezettel:</p>
+          <ul>
+            <li><strong>Első 2 számjegy</strong> - fejezet (pl. 84 = atomreaktorok, kazánok, gépek)</li>
+            <li><strong>Első 4 számjegy</strong> - vámtarifaszám (pontosabb kategória)</li>
+            <li><strong>Első 6 számjegy</strong> - alszám (még részletesebb bontás)</li>
+            <li><strong>Mind a 8 számjegy</strong> - teljes KN kód (legrészletesebb bontás)</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">Példa KN kódra:</p>
+            <p class="text-slate-700 mb-2"><code class="bg-white px-2 py-1 rounded">8471 30 00</code> - Hordozható számítógépek, amelyek tömege legfeljebb 10 kg</p>
+            <ul class="text-sm text-slate-600 mt-3 space-y-1">
+              <li>84 = Atomreaktorok, kazánok, gépek és mechanikus berendezések</li>
+              <li>8471 = Automatikus adatfeldolgozó gépek</li>
+              <li>8471 30 = Hordozható automatikus adatfeldolgozó gépek</li>
+              <li>8471 30 00 = Hordozható számítógépek, amelyek tömege legfeljebb 10 kg</li>
+            </ul>
+          </div>
+
+          <h2>Miért fontos a helyes besorolás?</h2>
+          <p>A helytelen árubesorolásnak súlyos következményei lehetnek:</p>
+          <ul>
+            <li><strong>Bírságok és szankciók</strong> - A Statisztikai Hivatal akár 3 320 EUR bírságot is kiszabhat</li>
+            <li><strong>Hibás statisztikák</strong> - Befolyásolja a nemzeti és európai gazdasági statisztikákat</li>
+            <li><strong>Ellenőrzési problémák</strong> - További ellenőrzésekhez és adminisztratív terhekhez vezethet</li>
+            <li><strong>Vámproblémák</strong> - EU-n kívüli exportnál vámkezelési problémákat okozhat</li>
+          </ul>
+
+          <h2>Hogyan soroljuk be helyesen az árukat?</h2>
+          
+          <h3>1. Azonosítsa pontosan az áru típusát</h3>
+          <p>
+            Az első lépés az áruk pontos azonosítása. Tudnia kell:
+          </p>
+          <ul>
+            <li>Az anyagot, amelyből az áru készült</li>
+            <li>Az áru felhasználási célját</li>
+            <li>Műszaki paramétereket és jellemzőket</li>
+            <li>Feldolgozási vagy gyártási módszert</li>
+          </ul>
+
+          <h3>2. Használjon hivatalos forrásokat</h3>
+          <p>Az árubesoroláshoz használja ezeket a hivatalos forrásokat:</p>
+          <ul>
+            <li><strong>EU TARIC adatbázis</strong> - Az Európai Unió Integrált Vámtarifája</li>
+            <li><strong>Szlovák Vámtarifa</strong> - Elérhető a Pénzügyi Igazgatóság weboldalán</li>
+            <li><strong>KN Magyarázó jegyzetek</strong> - Részletes magyarázatok az egyes tételekhez</li>
+            <li><strong>Kötelező érvényű tarifális felvilágosítás (KTF)</strong> - A vámhatóságok hivatalos döntése</li>
+          </ul>
+
+          <h3>3. Járjon el szisztematikusan</h3>
+          <p>A besorolásnál haladjon az általánostól a specifikus felé:</p>
+          <ol>
+            <li>Határozza meg a fejezetet (első 2 számjegy)</li>
+            <li>Találja meg a helyes vámtarifaszámot (4 számjegy)</li>
+            <li>Válassza ki az alszámot (6 számjegy)</li>
+            <li>Határozza meg a pontos KN kódot (8 számjegy)</li>
+          </ol>
+
+          <h2>Gyakori besorolási hibák</h2>
+          
+          <h3>1. Besorolás kereskedelmi név alapján</h3>
+          <p>
+            <strong>Hiba:</strong> Csak a termék kereskedelmi nevére hagyatkozni annak tényleges jellegének elemzése nélkül.
+          </p>
+          <p>
+            <strong>Megoldás:</strong> Mindig elemezze az áruk anyagát, funkcióját és műszaki jellemzőit, ne csak a marketing nevét.
+          </p>
+
+          <h3>2. Elavult tarifa használata</h3>
+          <p>
+            <strong>Hiba:</strong> A Kombinált Nómenklatúra évente frissül; a régi kódok érvénytelenek lehetnek.
+          </p>
+          <p>
+            <strong>Megoldás:</strong> Mindig az adott évre érvényes vámtarifa aktuális verzióját használja.
+          </p>
+
+          <h3>3. Készletek és szerelvények helytelen besorolása</h3>
+          <p>
+            <strong>Hiba:</strong> A készletekre és szerelvényekre speciális besorolási szabályok vonatkoznak, amelyeket gyakran figyelmen kívül hagynak.
+          </p>
+          <p>
+            <strong>Megoldás:</strong> Határozza meg, hogy a KN Általános Értelmezési Szabályai szerint vonatkoznak-e az árujára a készletekre vonatkozó szabályok.
+          </p>
+
+          <h2>Változások a Kombinált Nómenklatúrában</h2>
+          <p>
+            A Kombinált Nómenklatúra rendszeresen frissül, általában minden év január 1-jén. A változások magukban foglalhatják:
+          </p>
+          <ul>
+            <li>Új kódok létrehozása új árutípusokhoz</li>
+            <li>Elavult kódok törlése</li>
+            <li>Áruk áthelyezése kategóriák között</li>
+            <li>Leírások és megjegyzések módosítása</li>
+          </ul>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Fontos figyelmeztetés:</p>
+            <p class="text-slate-700">
+              Évváltáskor mindig ellenőrizze, hogy a használt KN kódok változatlanok maradtak-e. 
+              Egyes kódok törölhetők vagy más kategóriákba helyezhetők át.
+            </p>
+          </div>
+
+          <h2>Kötelező érvényű tarifális felvilágosítás (KTF)</h2>
+          <p>
+            Ha kétségei vannak az áruk helyes besorolásával kapcsolatban, kérheti a vámhatóságoktól 
+            <strong>Kötelező érvényű tarifális felvilágosítás (KTF)</strong> kiadását. Ez a döntés:
+          </p>
+          <ul>
+            <li>Jogilag kötelező érvényű a vámhatóságok számára az egész EU-ban</li>
+            <li>A kiadástól számított 3 évig érvényes</li>
+            <li>Jogbiztonságot nyújt a besorolásban</li>
+            <li>Védelmet nyújt a helytelen besorolásért járó szankciók ellen</li>
+          </ul>
+
+          <h2>Gyakorlati tippek a helyes besoroláshoz</h2>
+          <ol>
+            <li><strong>Dokumentálja a folyamatot</strong> - Vezessen nyilvántartást arról, hogyan jutott el az adott KN kódhoz</li>
+            <li><strong>Konzultáljon szakértőkkel</strong> - Összetett esetekben forduljon vámtanácsadókhoz</li>
+            <li><strong>Használja következetesen</strong> - Ugyanazoknak az áruknak mindig ugyanaz legyen a KN kódja</li>
+            <li><strong>Frissítsen rendszeresen</strong> - Kövesse nyomon a nómenklatúra változásait minden évben</li>
+            <li><strong>Ellenőrizze az információkat</strong> - Kétség esetén ellenőrizze a vámhatóságoknál</li>
+          </ol>
+
+          <h2>Hasznos források</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">EU TARIC adatbázis</a></li>
+            <li><a href="https://www.financnasprava.sk/en/electronic-services/public-services/customs-tariff" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Szlovák Vámtarifa</a></li>
+            <li><a href="https://intrastat.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Pénzügyi Igazgatóság Intrastat portál</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Közzétéve: 2025. július 20.</span>
+            <span>Olvasási idő: 8 perc</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Segítségre van szüksége az árubesorolásban?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Szakértőink segítenek helyesen besorolni áruit és elkerülni a hibákat az Intrastat jelentésekben.
+          </p>
+          <a href="/hu/kontakt/" class="btn-primary">
+            Kapcsolatfelvétel
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

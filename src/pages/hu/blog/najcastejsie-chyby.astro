@@ -1,0 +1,121 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+
+const t = useTranslations('hu');
+---
+
+<Layout title="5 leggyakoribb hiba az Intrastat jelentésekben | Intrastat Portál" description="Kerülje el ezeket a gyakori hibákat az Intrastat jelentések benyújtásakor. Gyakorlati tippek szakértőktől.">
+  <article>
+    <!-- Article Header -->
+    <header class="bg-gradient-to-br from-primary-600 to-primary-800 py-16 md:py-20">
+      <div class="container-custom">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-sm font-medium text-primary-200 bg-white/10 px-3 py-1 rounded-full">
+              Tippek
+            </span>
+            <span class="text-sm text-primary-200">4 perc olvasás</span>
+          </div>
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            5 leggyakoribb hiba az Intrastat jelentésekben
+          </h1>
+          <p class="text-xl text-primary-100">
+            Kerülje el ezeket a hibákat és spórolja meg a hatóságokkal való problémákat.
+          </p>
+          <time class="text-sm text-primary-200 mt-4 block">2025. január 5.</time>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <div class="section-padding">
+      <div class="container-custom">
+        <div class="max-w-3xl mx-auto prose prose-lg prose-slate">
+          <p class="lead">
+            Az Intrastat jelentések feldolgozása során ismétlődő hibákkal találkozunk, amelyek problémákhoz vezethetnek a hatóságokkal vagy bírságokhoz. Íme a leggyakoribb hibák áttekintése és hogyan kerülheti el őket.
+          </p>
+
+          <h2>1. Hibás árukód</h2>
+          <p>
+            A leggyakoribb hiba az áruk helytelen besorolása a kombinált nómenklatúra szerint. Minden terméket a megfelelő 8 számjegyű tételbe kell besorolni.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tipp:</strong> Használja a hivatalos vámtarifát és kétség esetén konzultáljon szakértővel. A hibás kód javító jelentésekhez vezethet.
+            </p>
+          </div>
+
+          <h2>2. Hiányzó származási ország</h2>
+          <p>
+            Az áruk beérkezésénél az áruk származási országát kell feltüntetni, nem a feladás országát. Ezek különbözhetnek - például Kínában gyártott, de Németországból szállított áruk esetén.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tipp:</strong> A származási országot megtalálhatja a számlán, szállítólevélen, vagy közvetlenül az árun. Ha nincs feltüntetve, kérje a szállítótól.
+            </p>
+          </div>
+
+          <h2>3. Hibás áruérték</h2>
+          <p>
+            Az áruk értékét EUR-ban kell feltüntetni és meg kell egyeznie a számlázott értékkel. Gyakori hibák:
+          </p>
+          <ul>
+            <li>ÁFA belefoglalása az értékbe (ÁFA nélkül kell lennie)</li>
+            <li>Hibás átváltás más pénznemből</li>
+            <li>Járulékos költségek kihagyása (szállítás, biztosítás)</li>
+          </ul>
+
+          <h2>4. Késedelmes benyújtás</h2>
+          <p>
+            A jelentést a következő hónap <strong>15. napjáig</strong> kell benyújtani. A késedelmes benyújtás emlékeztetőkhöz és bírságokhoz vezethet.
+          </p>
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-4 my-4">
+            <p class="text-amber-800 mb-0">
+              <strong>Figyelmeztetés:</strong> A jelentés be nem nyújtásáért járó bírság elérheti a 3 320 EUR-t jelentésenként!
+            </p>
+          </div>
+
+          <h2>5. A mentességi küszöb figyelmen kívül hagyása</h2>
+          <p>
+            Sok cég nem veszi észre, hogy túllépte a mentességi küszöböt és köteles jelentéseket benyújtani. Az értéket kumulatívan figyelik az év elejétől.
+          </p>
+          <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4">
+            <p class="text-green-800 mb-0">
+              <strong>Tipp:</strong> Állítson be riasztást a könyvelési rendszerében a mentességi küszöb 80%-ának elérésekor.
+            </p>
+          </div>
+
+          <h2>Hogyan kerülje el a hibákat?</h2>
+          <p>
+            A hibák elkerülésének legjobb módja, ha a jelentések feldolgozását szakértőkre bízza. Időt takarít meg, elkerüli a bírságokat és biztos lehet benne, hogy minden rendben van.
+          </p>
+          <p>
+            <a href="/hu/kontakt">Lépjen kapcsolatba velünk</a> és mi gondoskodunk az Ön Intrastat jelentéseiről.
+          </p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
+
+<style>
+  .prose h2 {
+    @apply text-2xl font-bold text-slate-900 mt-10 mb-4;
+  }
+  .prose p {
+    @apply text-slate-600 mb-4;
+  }
+  .prose p.lead {
+    @apply text-xl text-slate-700;
+  }
+  .prose ul {
+    @apply list-disc list-inside text-slate-600 mb-4 space-y-2;
+  }
+  .prose a {
+    @apply text-primary-600 hover:text-primary-700 underline;
+  }
+</style>
