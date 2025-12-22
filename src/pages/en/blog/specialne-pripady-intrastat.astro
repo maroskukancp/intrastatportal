@@ -1,0 +1,343 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Home', url: '/en/' },
+  { name: 'Blog', url: '/en/blog/' },
+  { name: 'Special Cases in Intrastat Reports', url: '/en/blog/specialne-pripady-intrastat/' }
+];
+---
+
+<Layout 
+  title="Special Cases in Intrastat Reports | Intrastat Portal"
+  description="Comprehensive guide to special cases in Intrastat reporting - goods processing, returns, replacements, split consignments, software, and distance selling."
+  keywords="goods processing, goods returns, goods replacement, split consignments, software intrastat, distance selling, goods repairs"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Special Cases
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-25">
+              January 25, 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Special Cases in Intrastat Reports
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Goods processing, returns, replacements, split consignments, software, and distance selling - learn how to correctly report these special cases.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-specialne-pripady.jpg`}
+            alt="Special Cases in Intrastat Reports"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>1. Goods Processing and Repairs</h2>
+          
+          <h3>What is Goods Processing?</h3>
+          <p>
+            Goods processing is a situation where goods are temporarily sent to another member state for processing, 
+            modification, or repair and are subsequently returned to the original member state.
+          </p>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Example of Goods Processing:</p>
+            <p class="text-slate-700">
+              A Slovak company sends textile material to the Czech Republic for dyeing. After dyeing, the material is returned to Slovakia. 
+              This process involves two goods movements that must be reported in Intrastat reports.
+            </p>
+          </div>
+
+          <h3>How to Report Goods Processing?</h3>
+          <p><strong>When sending goods for processing:</strong></p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 41 (dispatch of goods for processing)</li>
+            <li><strong>Statistical value:</strong> Value of goods before processing</li>
+            <li><strong>Weight:</strong> Weight of goods before processing</li>
+          </ul>
+
+          <p><strong>When receiving processed goods:</strong></p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 51 (arrival of goods after processing)</li>
+            <li><strong>Statistical value:</strong> Value of goods after processing (including processing costs)</li>
+            <li><strong>Weight:</strong> Weight of goods after processing</li>
+          </ul>
+
+          <h3>Goods Repairs</h3>
+          <p>
+            Goods repairs are reported similarly to processing, but different nature of transaction codes are used:
+          </p>
+          <ul>
+            <li><strong>Code 42:</strong> Dispatch of goods for repair</li>
+            <li><strong>Code 52:</strong> Arrival of goods after repair</li>
+          </ul>
+
+          <h2>2. Returns and Replacements</h2>
+          
+          <h3>Goods Returns</h3>
+          <p>
+            Goods returns occur when a customer returns goods to the supplier (e.g., due to complaint, disagreement with goods, etc.).
+          </p>
+
+          <p><strong>Reporting returns:</strong></p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 21 (return of goods)</li>
+            <li><strong>Statistical value:</strong> Original value of returned goods</li>
+            <li><strong>Direction:</strong> Opposite to the original supply</li>
+          </ul>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Example of Goods Return:</p>
+            <p class="text-slate-700">
+              A Slovak company sold goods to a Czech customer (reported as dispatch). The customer returned the goods due to complaint. 
+              The return is reported as arrival of goods from Czech Republic with transaction code 21.
+            </p>
+          </div>
+
+          <h3>Goods Replacement</h3>
+          <p>
+            Goods replacement is a situation where the supplier provides replacement goods for defective or damaged goods.
+          </p>
+
+          <p><strong>Reporting replacement:</strong></p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 22 (replacement for goods)</li>
+            <li><strong>Statistical value:</strong> Value of replacement goods</li>
+            <li><strong>Note:</strong> Only the movement of replacement goods is reported, not the return of defective goods</li>
+          </ul>
+
+          <h2>3. Split Consignments</h2>
+          
+          <h3>What are Split Consignments?</h3>
+          <p>
+            Split consignments are deliveries where one commercial contract is fulfilled by multiple partial deliveries over time.
+          </p>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Important Rule:</p>
+            <p class="text-slate-700">
+              Each partial delivery is reported separately in the month when it occurred. It is not possible to accumulate 
+              all deliveries and report them at once after completing the entire order.
+            </p>
+          </div>
+
+          <h3>Reporting Split Consignments</h3>
+          <ul>
+            <li>Each partial delivery = separate line in the report</li>
+            <li>Reported in the month of physical goods movement</li>
+            <li>Value and weight correspond to the specific partial delivery</li>
+            <li>CN commodity code must be the same for all partial deliveries</li>
+          </ul>
+
+          <h2>4. Software and Digital Products</h2>
+          
+          <h3>Physical Media with Software</h3>
+          <p>
+            If software is delivered on physical media (CD, DVD, USB), it is reported in Intrastat reports as tangible goods:
+          </p>
+          <ul>
+            <li><strong>CN code:</strong> According to media type (e.g., 8523 49 10 for optical discs)</li>
+            <li><strong>Value:</strong> Total value including software</li>
+            <li><strong>Weight:</strong> Weight of physical media</li>
+          </ul>
+
+          <h3>Electronically Delivered Software</h3>
+          <p>
+            Software delivered electronically (download, cloud) is <strong>not reported</strong> in Intrastat reports 
+            because it is not a physical goods movement. It is a provision of service.
+          </p>
+
+          <h2>5. Distance Selling of Goods</h2>
+          
+          <h3>What is Distance Selling?</h3>
+          <p>
+            Distance selling of goods is the sale of goods to final consumers in another member state, 
+            where the supplier arranges the transport of goods.
+          </p>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Example of Distance Selling:</p>
+            <p class="text-slate-700">
+              A Slovak e-shop sells goods to Czech consumers via the internet. Goods are sent from Slovakia 
+              directly to Czech customers. This is a typical case of distance selling of goods.
+            </p>
+          </div>
+
+          <h3>Thresholds for Distance Selling</h3>
+          <p>
+            Since July 1, 2021, a single threshold applies for the entire EU:
+          </p>
+          <ul>
+            <li><strong>Threshold:</strong> EUR 10,000 annually (for all member states combined)</li>
+            <li><strong>Below threshold:</strong> VAT is paid in the supplier's country</li>
+            <li><strong>Above threshold:</strong> VAT is paid in the customer's country</li>
+          </ul>
+
+          <h3>Reporting in Intrastat</h3>
+          <p>
+            Distance selling of goods is reported in Intrastat reports as standard dispatch of goods:
+          </p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 11 (sale)</li>
+            <li><strong>Country of destination:</strong> Member state of final consumer</li>
+            <li><strong>Value:</strong> Sales price of goods</li>
+          </ul>
+
+          <h2>6. Waste and Scrap</h2>
+          
+          <h3>Reporting Waste</h3>
+          <p>
+            Waste arising from production or processing that is sent to another member state is reported in Intrastat:
+          </p>
+          <ul>
+            <li><strong>CN code:</strong> According to waste type (chapter 38 or others)</li>
+            <li><strong>Value:</strong> Market value of waste (if it has any value)</li>
+            <li><strong>Transaction code:</strong> According to nature of transaction (sale, free supply, etc.)</li>
+          </ul>
+
+          <h2>7. Free Supplies</h2>
+          
+          <h3>Samples</h3>
+          <p>
+            Goods samples supplied free of charge are reported in Intrastat reports:
+          </p>
+          <ul>
+            <li><strong>Nature of transaction code:</strong> 12 (free supply)</li>
+            <li><strong>Value:</strong> Market value of samples</li>
+            <li><strong>Weight:</strong> Actual weight of samples</li>
+          </ul>
+
+          <h3>Promotional Items</h3>
+          <p>
+            Promotional items (promotional materials) are reported similarly to samples if they have commercial value.
+          </p>
+
+          <h2>8. Nil Declaration</h2>
+          
+          <h3>When to Submit a Nil Declaration?</h3>
+          <p>
+            A nil declaration is submitted when:
+          </p>
+          <ul>
+            <li>You have reporting obligation (exceeded the threshold)</li>
+            <li>In the given month you did not carry out any goods movements</li>
+            <li>You want to confirm that there were no transactions in the given month</li>
+          </ul>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">Tip:</p>
+            <p class="text-slate-700">
+              A nil declaration is not mandatory, but it is recommended to submit it to avoid reminders 
+              from the Statistical Office of the Slovak Republic.
+            </p>
+          </div>
+
+          <h2>9. Data Aggregation</h2>
+          
+          <h3>What is Aggregation?</h3>
+          <p>
+            Data aggregation means merging multiple smaller transactions into one line in the report 
+            if they meet certain conditions.
+          </p>
+
+          <h3>Rules for Aggregation</h3>
+          <p>
+            You can aggregate transactions if:
+          </p>
+          <ul>
+            <li>It is the same CN commodity code</li>
+            <li>Same country of origin/destination</li>
+            <li>Same nature of transaction code</li>
+            <li>Same delivery terms</li>
+          </ul>
+
+          <p><strong>Benefits of aggregation:</strong></p>
+          <ul>
+            <li>Simplification of reporting</li>
+            <li>Fewer lines in the report</li>
+            <li>Clearer data</li>
+          </ul>
+
+          <h2>Common Mistakes with Special Cases</h2>
+          
+          <h3>1. Not Reporting Goods Returns</h3>
+          <p>
+            Many companies forget to report goods returns, which leads to incorrect statistics and possible penalties.
+          </p>
+
+          <h3>2. Incorrect Transaction Code</h3>
+          <p>
+            Using a standard transaction code instead of a special code for processing, repair, or return.
+          </p>
+
+          <h3>3. Reporting Electronic Services</h3>
+          <p>
+            Electronically delivered software or digital services are not reported in Intrastat, only software on physical media.
+          </p>
+
+          <h2>Practical Tips</h2>
+          <ol>
+            <li><strong>Record all movements</strong> - Even those that seem exceptional</li>
+            <li><strong>Use correct codes</strong> - Each special case has its transaction code</li>
+            <li><strong>Document reasons</strong> - Keep documentation for returns, replacements, or repairs</li>
+            <li><strong>Consult uncertainties</strong> - When in doubt, turn to experts</li>
+            <li><strong>Monitor changes</strong> - Rules may change, follow updates</li>
+          </ol>
+
+          <h2>Useful Resources</h2>
+          <ul>
+            <li><a href="https://intrastat.statistics.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Statistical Office SR - Intrastat</a></li>
+            <li><a href="https://intrastat.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Financial Administration SR - Intrastat Portal</a></li>
+            <li><a href="https://www.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Financial Administration of the Slovak Republic</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Published: January 25, 2025</span>
+            <span>Reading time: 10 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Need Help with Special Cases?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Special cases can be challenging to report. Our experts will help you correctly identify and report them.
+          </p>
+          <a href="/en/kontakt/" class="btn-primary">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

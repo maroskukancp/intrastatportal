@@ -1,0 +1,243 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Home', url: '/en/' },
+  { name: 'Blog', url: '/en/blog/' },
+  { name: 'Triangular Trade and Indirect Import/Export', url: '/en/blog/trojstranný-obchod/' }
+];
+---
+
+<Layout 
+  title="Triangular Trade and Indirect Import/Export in Intrastat | Intrastat Portal"
+  description="Comprehensive guide to triangular trade and indirect import/export. Learn how to correctly report complex business operations in Intrastat reports."
+  keywords="triangular trade, indirect import, indirect export, intrastat triangular trade, VAT exemption, triangular trade"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Advanced Topics
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-22">
+              January 22, 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Triangular Trade and Indirect Import/Export in Intrastat Reports
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Triangular trade and indirect goods movements are among the most complex cases in Intrastat reporting. Learn how to correctly identify and report them.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-trojstranný-obchod.jpg`}
+            alt="Triangular Trade and Indirect Import/Export"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>What is Triangular Trade?</h2>
+          <p>
+            Triangular trade is a business operation where goods physically move between three EU member states, 
+            with three different entities participating in the trade. Typically, this is a situation where:
+          </p>
+          <ul>
+            <li>Entity A (from member state 1) sells goods to entity B (from member state 2)</li>
+            <li>Entity B sells the same goods to entity C (from member state 3)</li>
+            <li>The goods physically move directly from member state 1 to member state 3</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Example of Triangular Trade:</p>
+            <ol class="text-slate-700 space-y-2">
+              <li><strong>1.</strong> German manufacturer (DE) sells goods to Slovak trader (SK)</li>
+              <li><strong>2.</strong> Slovak trader (SK) sells the same goods to Czech customer (CZ)</li>
+              <li><strong>3.</strong> Goods physically move directly from Germany (DE) to Czech Republic (CZ)</li>
+              <li><strong>4.</strong> Goods never physically enter Slovak territory</li>
+            </ol>
+          </div>
+
+          <h2>Reporting Triangular Trade</h2>
+          
+          <h3>For the Intermediary Trader (SK in our example)</h3>
+          <p>
+            The Slovak trader has a special reporting regime:
+          </p>
+          <ul>
+            <li><strong>Intrastat arrival:</strong> Reports arrival of goods from Germany (even though goods didn't physically pass through SK)</li>
+            <li><strong>Intrastat dispatch:</strong> Reports dispatch of goods to Czech Republic</li>
+            <li><strong>VAT:</strong> Can use simplified exemption regime according to § 43 of the VAT Act</li>
+            <li><strong>Nature of transaction code:</strong> Special code 21 or 29 is used</li>
+          </ul>
+
+          <h3>Conditions for Applying the Simplified Regime</h3>
+          <p>To apply VAT exemption in triangular trade, these conditions must be met:</p>
+          <ol>
+            <li>Goods physically move from one member state to another</li>
+            <li>Intermediary trader is identified for VAT in another member state</li>
+            <li>Acquirer is a VAT payer in the member state of destination</li>
+            <li>Intermediary trader uses the VAT ID of the member state of destination</li>
+          </ol>
+
+          <h2>Indirect Import and Export</h2>
+          
+          <h3>What is Indirect Import?</h3>
+          <p>
+            Indirect import occurs when a Slovak company purchases goods from a supplier in another EU member state, 
+            but the goods are delivered directly to the final customer in a third member state, without physically entering Slovak territory.
+          </p>
+
+          <div class="bg-slate-50 border-l-4 border-slate-400 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-3">Example of Indirect Import:</p>
+            <p class="text-slate-700">
+              A Slovak company orders goods from a Polish supplier. The Polish supplier sends the goods directly 
+              to a Slovak customer (end user) in Slovakia. The Slovak company acts as an intermediary.
+            </p>
+            <p class="text-slate-700 mt-3">
+              <strong>Reporting:</strong> The Slovak company reports arrival from Poland, even though the goods didn't pass through its warehouse.
+            </p>
+          </div>
+
+          <h3>What is Indirect Export?</h3>
+          <p>
+            Indirect export is the opposite situation - a Slovak company sells goods to a customer in another member state, 
+            but the goods are delivered directly from a Slovak supplier to the final customer abroad.
+          </p>
+
+          <h2>VAT Exemption for Supply to Another Member State</h2>
+          <p>
+            When supplying goods to another member state, VAT exemption according to § 43 of the VAT Act may be applied. 
+            Conditions for exemption:
+          </p>
+          <ul>
+            <li>Goods are dispatched or transported to another member state</li>
+            <li>Supplier or acquirer arranges transport</li>
+            <li>Acquirer is identified for VAT in another member state</li>
+            <li>Supplier has proof of goods transport (CMR, invoice, etc.)</li>
+          </ul>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Important Notice:</p>
+            <p class="text-slate-700">
+              To apply VAT exemption, it is essential to have proper documentation proving the physical movement of goods 
+              to another member state. Without this documentation, the exemption may be denied.
+            </p>
+          </div>
+
+          <h2>Documentation Required for Triangular Trade</h2>
+          <p>For correct reporting and application of tax benefits, it is necessary to keep:</p>
+          <ul>
+            <li><strong>Invoices</strong> - From all participating parties</li>
+            <li><strong>Transport documents</strong> - CMR, bills of lading, delivery confirmation</li>
+            <li><strong>Orders</strong> - Documenting business relationships</li>
+            <li><strong>VAT ID confirmation</strong> - Verification of acquirer's VAT ID validity via VIES</li>
+            <li><strong>Correspondence</strong> - Emails and other communication regarding the trade</li>
+          </ul>
+
+          <h2>Common Mistakes in Reporting Triangular Trade</h2>
+          
+          <h3>1. Not Reporting Goods Movement</h3>
+          <p>
+            <strong>Mistake:</strong> The intermediary trader thinks that if goods didn't physically pass through their warehouse, 
+            they don't need to report any movements in Intrastat.
+          </p>
+          <p>
+            <strong>Solution:</strong> Even in triangular trade, it is necessary to report both arrival and dispatch of goods in Intrastat reports.
+          </p>
+
+          <h3>2. Incorrect Nature of Transaction Code</h3>
+          <p>
+            <strong>Mistake:</strong> Using a standard transaction code instead of a special code for triangular trade.
+          </p>
+          <p>
+            <strong>Solution:</strong> For triangular trade, use codes 21 (purchase) or 29 (sale).
+          </p>
+
+          <h3>3. Insufficient Documentation</h3>
+          <p>
+            <strong>Mistake:</strong> Insufficient evidence of physical goods movement between member states.
+          </p>
+          <p>
+            <strong>Solution:</strong> Always keep complete transport documents and invoices from all participating parties.
+          </p>
+
+          <h2>VAT ID Verification via VIES System</h2>
+          <p>
+            In triangular trade, it is crucial to verify the validity of business partners' VAT IDs via the VIES 
+            (VAT Information Exchange System). This verification:
+          </p>
+          <ul>
+            <li>Confirms that the partner is registered for VAT in the relevant member state</li>
+            <li>Serves as evidence when applying VAT exemption</li>
+            <li>Protects you from VAT fraud</li>
+            <li>Is available online on the European Commission website</li>
+          </ul>
+
+          <h2>Practical Tips for Triangular Trade</h2>
+          <ol>
+            <li><strong>Document everything</strong> - Keep all documents for at least 10 years</li>
+            <li><strong>Verify VAT IDs</strong> - Always verify VAT ID validity via VIES before the transaction</li>
+            <li><strong>Communicate clearly</strong> - Ensure all parties understand their obligations</li>
+            <li><strong>Track physical movement</strong> - Document the actual route of goods</li>
+            <li><strong>Consult with experts</strong> - In complex cases, turn to tax advisors</li>
+          </ol>
+
+          <h2>Changes in 2026</h2>
+          <p>
+            As part of the Intrastat system modernization, changes are being prepared that will also affect triangular trade reporting. 
+            Follow updates from the Statistical Office of the Slovak Republic and the Financial Administration.
+          </p>
+
+          <h2>Useful Resources</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/vies/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">VIES - VAT ID Verification</a></li>
+            <li><a href="https://www.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Financial Administration of the Slovak Republic</a></li>
+            <li><a href="https://intrastat.statistics.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Statistical Office SR - Intrastat</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Published: January 22, 2025</span>
+            <span>Reading time: 9 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Need Help with Triangular Trade?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Triangular trade can be complex. Our experts will help you correctly report these operations and avoid mistakes.
+          </p>
+          <a href="/en/kontakt/" class="btn-primary">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>

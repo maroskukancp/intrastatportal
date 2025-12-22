@@ -1,0 +1,224 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/translations';
+import CTA from '../../../components/CTA.astro';
+import BreadcrumbSchema from '../../../components/BreadcrumbSchema.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const breadcrumbs = [
+  { name: 'Home', url: '/en/' },
+  { name: 'Blog', url: '/en/blog/' },
+  { name: 'Customs Tariff and Commodity Classification', url: '/en/blog/colny-sadzobnik-zatriedenie/' }
+];
+---
+
+<Layout 
+  title="Customs Tariff and Commodity Classification in Intrastat Reports | Intrastat Portal"
+  description="Comprehensive guide to customs tariff and correct commodity classification. Learn how to assign the correct CN code and avoid common mistakes."
+  keywords="customs tariff, combined nomenclature, CN code, commodity classification, goods classification, intrastat codes"
+>
+  <BreadcrumbSchema items={breadcrumbs} />
+  
+  <article class="py-16 lg:py-20">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto">
+        <!-- Article Header -->
+        <header class="mb-8">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-xs font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+              Practical Guide
+            </span>
+            <time class="text-sm text-slate-500" datetime="2025-01-20">
+              January 20, 2025
+            </time>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            Customs Tariff and Commodity Classification in Intrastat Reports
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed">
+            Correct commodity classification is crucial for accurate Intrastat reporting. Learn how to work with the customs tariff and avoid common classification mistakes.
+          </p>
+        </header>
+
+        <!-- Featured Image -->
+        <div class="mb-12 rounded-2xl overflow-hidden">
+          <img 
+            src={`${base}/images/blog-colny-sadzobnik.jpg`}
+            alt="Customs Tariff and Commodity Classification"
+            class="w-full h-auto"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Article Content -->
+        <div class="prose prose-lg max-w-none">
+          <h2>What is the Customs Tariff (Combined Nomenclature)?</h2>
+          <p>
+            The Customs Tariff, officially called the Combined Nomenclature (CN), is a systematic list of all types of goods 
+            that can be the subject of international trade. Each type of goods has an assigned unique 8-digit numerical code 
+            that precisely identifies its nature and characteristics.
+          </p>
+
+          <h3>Structure of the CN Code</h3>
+          <p>The CN code consists of 8 digits with a hierarchical structure:</p>
+          <ul>
+            <li><strong>First 2 digits</strong> - chapter (e.g., 84 = nuclear reactors, boilers, machinery)</li>
+            <li><strong>First 4 digits</strong> - heading (more precise category)</li>
+            <li><strong>First 6 digits</strong> - subheading (even more detailed breakdown)</li>
+            <li><strong>All 8 digits</strong> - complete CN code (most detailed breakdown)</li>
+          </ul>
+
+          <div class="bg-primary-50 border-l-4 border-primary-600 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">Example CN Code:</p>
+            <p class="text-slate-700 mb-2"><code class="bg-white px-2 py-1 rounded">8471 30 00</code> - Portable computers weighing not more than 10 kg</p>
+            <ul class="text-sm text-slate-600 mt-3 space-y-1">
+              <li>84 = Nuclear reactors, boilers, machinery and mechanical appliances</li>
+              <li>8471 = Automatic data processing machines</li>
+              <li>8471 30 = Portable automatic data processing machines</li>
+              <li>8471 30 00 = Portable computers weighing not more than 10 kg</li>
+            </ul>
+          </div>
+
+          <h2>Why is Correct Classification Important?</h2>
+          <p>Incorrect commodity classification can have serious consequences:</p>
+          <ul>
+            <li><strong>Fines and penalties</strong> - The Statistical Office can impose fines up to EUR 3,320</li>
+            <li><strong>Incorrect statistics</strong> - Affects national and European economic statistics</li>
+            <li><strong>Control issues</strong> - May lead to additional inspections and administrative burden</li>
+            <li><strong>Customs problems</strong> - When exporting outside the EU, it can cause customs clearance issues</li>
+          </ul>
+
+          <h2>How to Classify Goods Correctly?</h2>
+          
+          <h3>1. Identify the Exact Type of Goods</h3>
+          <p>
+            The first step is precise identification of the goods. You need to know:
+          </p>
+          <ul>
+            <li>Material from which the goods are made</li>
+            <li>Purpose of use of the goods</li>
+            <li>Technical parameters and characteristics</li>
+            <li>Method of processing or production</li>
+          </ul>
+
+          <h3>2. Use Official Sources</h3>
+          <p>For commodity classification, use these official sources:</p>
+          <ul>
+            <li><strong>EU TARIC database</strong> - Integrated Tariff of the European Union</li>
+            <li><strong>Slovak Customs Tariff</strong> - Available on the Financial Administration website</li>
+            <li><strong>CN Explanatory Notes</strong> - Detailed explanations for individual items</li>
+            <li><strong>Binding Tariff Information (BTI)</strong> - Official decision by customs authorities</li>
+          </ul>
+
+          <h3>3. Proceed Systematically</h3>
+          <p>When classifying, proceed from general to specific:</p>
+          <ol>
+            <li>Determine the chapter (first 2 digits)</li>
+            <li>Find the correct heading (4 digits)</li>
+            <li>Select the subheading (6 digits)</li>
+            <li>Determine the exact CN code (8 digits)</li>
+          </ol>
+
+          <h2>Common Classification Mistakes</h2>
+          
+          <h3>1. Classification by Commercial Name</h3>
+          <p>
+            <strong>Mistake:</strong> Relying only on the commercial name of the product without analyzing its actual nature.
+          </p>
+          <p>
+            <strong>Solution:</strong> Always analyze the material, function, and technical characteristics of the goods, not just its marketing name.
+          </p>
+
+          <h3>2. Using an Outdated Tariff</h3>
+          <p>
+            <strong>Mistake:</strong> The Combined Nomenclature is updated annually; old codes may be invalid.
+          </p>
+          <p>
+            <strong>Solution:</strong> Always use the current version of the customs tariff for the given year.
+          </p>
+
+          <h3>3. Incorrect Classification of Sets and Assemblies</h3>
+          <p>
+            <strong>Mistake:</strong> Sets and assemblies have special classification rules that are often ignored.
+          </p>
+          <p>
+            <strong>Solution:</strong> Determine whether the rules for sets apply to your goods according to the General Rules for the Interpretation of CN.
+          </p>
+
+          <h2>Changes in the Combined Nomenclature</h2>
+          <p>
+            The Combined Nomenclature is regularly updated, usually on January 1 of each year. Changes may include:
+          </p>
+          <ul>
+            <li>Creation of new codes for new types of goods</li>
+            <li>Deletion of outdated codes</li>
+            <li>Movement of goods between categories</li>
+            <li>Changes in descriptions and notes</li>
+          </ul>
+
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+            <p class="font-semibold text-slate-900 mb-2">⚠️ Important Notice:</p>
+            <p class="text-slate-700">
+              When the year changes, always check whether the CN codes you use have remained unchanged. 
+              Some codes may be deleted or moved to other categories.
+            </p>
+          </div>
+
+          <h2>Binding Tariff Information (BTI)</h2>
+          <p>
+            If you have doubts about the correct classification of goods, you can request customs authorities to issue 
+            <strong>Binding Tariff Information (BTI)</strong>. This decision:
+          </p>
+          <ul>
+            <li>Is legally binding for customs authorities throughout the EU</li>
+            <li>Valid for 3 years from the date of issue</li>
+            <li>Provides legal certainty in classification</li>
+            <li>Protects you from penalties for incorrect classification</li>
+          </ul>
+
+          <h2>Practical Tips for Correct Classification</h2>
+          <ol>
+            <li><strong>Document the process</strong> - Keep records of how you arrived at the given CN code</li>
+            <li><strong>Consult with experts</strong> - In complex cases, turn to customs advisors</li>
+            <li><strong>Use consistently</strong> - The same goods should always have the same CN code</li>
+            <li><strong>Update regularly</strong> - Monitor changes in nomenclature every year</li>
+            <li><strong>Verify information</strong> - When in doubt, verify with customs authorities</li>
+          </ol>
+
+          <h2>Useful Resources</h2>
+          <ul>
+            <li><a href="https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">EU TARIC Database</a></li>
+            <li><a href="https://www.financnasprava.sk/en/electronic-services/public-services/customs-tariff" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Slovak Customs Tariff</a></li>
+            <li><a href="https://intrastat.financnasprava.sk/" target="_blank" rel="noopener noreferrer" class="text-primary-600 hover:text-primary-700">Financial Administration Portal for Intrastat</a></li>
+          </ul>
+        </div>
+
+        <!-- Author & Date -->
+        <div class="mt-12 pt-8 border-t border-slate-200">
+          <div class="flex items-center justify-between text-sm text-slate-600">
+            <span>Published: January 20, 2025</span>
+            <span>Reading time: 8 min</span>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 bg-slate-50 rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">
+            Need Help with Commodity Classification?
+          </h3>
+          <p class="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Our experts will help you correctly classify your goods and avoid mistakes in Intrastat reports.
+          </p>
+          <a href="/en/kontakt/" class="btn-primary">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTA />
+</Layout>
