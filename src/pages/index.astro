@@ -11,7 +11,11 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title="Intrastat Portál - Profesionálne spracovanie Intrastat hlásení">
+<Layout 
+  title="Intrastat Portál - Profesionálne spracovanie Intrastat hlásení" 
+  description="Profesionálne spracovanie Intrastat hlásení pre slovenské firmy. Šetríme váš čas a chránime vás pred pokutami. Dlhoročné skúsenosti, presnosť a spoľahlivosť."
+  keywords="intrastat, intrastat hlásenie, intrastat slovensko, spracovanie intrastat, intrastat povinnosť, intrastat služby, colné hlásenie, štatistické hlásenie"
+>
   <Hero />
   <Features />
   <Services />

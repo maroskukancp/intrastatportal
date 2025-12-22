@@ -1,0 +1,65 @@
+---
+interface Props {
+  type: 'organization' | 'website' | 'article';
+  data?: any;
+}
+
+const { type, data } = Astro.props;
+const baseUrl = 'https://intrastatportal.sk';
+
+let schema = {};
+
+if (type === 'organization') {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Intrastat Portál",
+    "url": baseUrl,
+    "logo": `${baseUrl}/images/logo.png`,
+    "description": "Profesionálne spracovanie Intrastat hlásení pre slovenské firmy",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SK"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "info@intrastatportal.sk",
+      "contactType": "customer service",
+      "availableLanguage": ["Slovak", "English"]
+    },
+    "sameAs": []
+  };
+} else if (type === 'website') {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Intrastat Portál",
+    "url": baseUrl,
+    "description": "Profesionálne spracovanie Intrastat hlásení pre slovenské firmy",
+    "inLanguage": ["sk", "en"]
+  };
+} else if (type === 'article' && data) {
+  schema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.title,
+    "description": data.description,
+    "image": data.image,
+    "datePublished": data.datePublished,
+    "author": {
+      "@type": "Organization",
+      "name": "Intrastat Portál"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Intrastat Portál",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/images/logo.png`
+      }
+    }
+  };
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
