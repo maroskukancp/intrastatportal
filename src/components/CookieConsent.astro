@@ -1,0 +1,77 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/translations';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div id="cookie-consent" class="hidden fixed bottom-0 left-0 right-0 bg-slate-900 text-white p-4 shadow-2xl z-50 border-t-2 border-primary-600">
+  <div class="container-custom">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex-1">
+        <p class="text-sm md:text-base">
+          {lang === 'sk' 
+            ? 'Táto webová stránka používa cookies na zlepšenie vášho zážitku a na analytické účely. Používaním tejto stránky súhlasíte s používaním cookies.'
+            : 'This website uses cookies to improve your experience and for analytics purposes. By using this site, you consent to the use of cookies.'
+          }
+          <a href={`${lang === 'sk' ? '' : '/en'}/cookies`} class="underline hover:text-primary-400 ml-1">
+            {lang === 'sk' ? 'Viac informácií' : 'More information'}
+          </a>
+        </p>
+      </div>
+      <div class="flex gap-3">
+        <button 
+          id="cookie-accept" 
+          class="px-6 py-2 bg-primary-600 hover:bg-primary-700 rounded-lg font-semibold transition-colors whitespace-nowrap"
+        >
+          {lang === 'sk' ? 'Súhlasím' : 'Accept'}
+        </button>
+        <button 
+          id="cookie-decline" 
+          class="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg font-semibold transition-colors whitespace-nowrap"
+        >
+          {lang === 'sk' ? 'Odmietnuť' : 'Decline'}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Check if user has already made a choice
+  const cookieConsent = localStorage.getItem('cookieConsent');
+  const consentBanner = document.getElementById('cookie-consent');
+  
+  if (!cookieConsent && consentBanner) {
+    consentBanner.classList.remove('hidden');
+  }
+  
+  // Accept cookies
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'accepted');
+    consentBanner?.classList.add('hidden');
+    
+    // Enable Google Analytics if it was disabled
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+    }
+  });
+  
+  // Decline cookies
+  document.getElementById('cookie-decline')?.addEventListener('click', () => {
+    localStorage.setItem('cookieConsent', 'declined');
+    consentBanner?.classList.add('hidden');
+    
+    // Disable Google Analytics
+    if (window.gtag) {
+      window.gtag('consent', 'update', {
+        'analytics_storage': 'denied'
+      });
+    }
+    
+    // Disable GA tracking
+    window['ga-disable-G-J93S09JDJL'] = true;
+  });
+</script>
