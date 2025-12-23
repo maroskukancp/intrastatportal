@@ -122,6 +122,10 @@ export const translations = {
     'footer.privacy': 'Ochrana osobných údajov',
     'footer.terms': 'Obchodné podmienky',
     'footer.cookies': 'Cookies',
+    'footer.company': 'Spoločnosť',
+    'footer.ico': 'IČO',
+    'footer.dic': 'DIČ',
+    'footer.address': 'Adresa',
     'footer.copyright': '© 2025 Intrastat Portál. Všetky práva vyhradené.',
     
     // CTA
@@ -244,6 +248,10 @@ export const translations = {
     'footer.privacy': 'Privacy policy',
     'footer.terms': 'Terms of service',
     'footer.cookies': 'Cookies',
+    'footer.company': 'Company',
+    'footer.ico': 'Company ID',
+    'footer.dic': 'Tax ID',
+    'footer.address': 'Address',
     'footer.copyright': '© 2025 Intrastat Portal. All rights reserved.',
     
     // CTA
@@ -366,6 +374,10 @@ export const translations = {
     'footer.privacy': 'Adatvédelmi irányelvek',
     'footer.terms': 'Szolgáltatási feltételek',
     'footer.cookies': 'Sütik',
+    'footer.company': 'Cég',
+    'footer.ico': 'Cégjegyzékszám',
+    'footer.dic': 'Adószám',
+    'footer.address': 'Cím',
     'footer.copyright': '© 2025 Intrastat Portál. Minden jog fenntartva.',
     
     // CTA

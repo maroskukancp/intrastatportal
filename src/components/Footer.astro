@@ -23,6 +23,14 @@ const usefulLinks = [
   { name: 'Finančná správa SR', href: 'https://intrastat.financnasprava.sk/' },
   { name: 'Štatistický úrad SR', href: 'https://intrastat.statistics.sk/Intrastat/' },
 ];
+
+const companyInfo = {
+  name: 'Karol Virág - KIMM',
+  ico: '40883264',
+  dic: '1027955060',
+  address: 'Ružová dolina 3, 940 56 Nové Zámky',
+  phone: '+421915730066',
+};
 ---
 
 <footer class="bg-slate-900 text-slate-300">
@@ -96,15 +104,31 @@ const usefulLinks = [
           {t('contact.info.title')}
         </h3>
         <ul class="space-y-3 text-sm text-slate-400">
-          <li class="flex items-center space-x-2">
+          <li>
+            <div class="font-semibold text-white text-xs uppercase tracking-wider mb-1">{t('footer.company')}</div>
+            <div>{companyInfo.name}</div>
+          </li>
+          <li>
+            <div class="font-semibold text-white text-xs uppercase tracking-wider mb-1">{t('footer.ico')}</div>
+            <div>{companyInfo.ico}</div>
+          </li>
+          <li>
+            <div class="font-semibold text-white text-xs uppercase tracking-wider mb-1">{t('footer.dic')}</div>
+            <div>{companyInfo.dic}</div>
+          </li>
+          <li>
+            <div class="font-semibold text-white text-xs uppercase tracking-wider mb-1">{t('footer.address')}</div>
+            <div>{companyInfo.address}</div>
+          </li>
+          <li class="flex items-center space-x-2 pt-2">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
             </svg>
-            <a href="tel:+421915730066" class="hover:text-white transition-colors">+421 915 730 066</a>
+            <a href={`tel:${companyInfo.phone}`} class="hover:text-white transition-colors">{companyInfo.phone}</a>
           </li>
           <li class="flex items-center space-x-2">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>{t('contact.info.hoursValue')}</span>
           </li>
@@ -119,4 +143,30 @@ const usefulLinks = [
       </p>
     </div>
   </div>
+
+  <!-- Organization Schema Markup for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": companyInfo.name,
+    "url": Astro.site || `${Astro.url.protocol}//${Astro.url.host}`,
+    "logo": `${Astro.url.protocol}//${Astro.url.host}/logo.png`,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": companyInfo.phone,
+      "contactType": "customer service",
+      "areaServed": "SK",
+      "availableLanguage": ["Slovak", "English", "Hungarian"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Ružová dolina 3",
+      "addressLocality": "Nové Zámky",
+      "postalCode": "940 56",
+      "addressCountry": "SK"
+    },
+    "taxID": companyInfo.dic,
+    "vatID": companyInfo.dic,
+    "telephone": companyInfo.phone
+  })} />
 </footer>
